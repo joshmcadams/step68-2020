@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="script.js"></script>
+    </head>
+    <body onload="manageVisibility()">
+      <div id="content">
+        <h1 class="center">Jamie Tucker's Portfolio</h1>
+        <nav>
+          <a href="/login">Login Status</a>
+          <a href="index.html">About Me</a>
+          <a href="imagegallery.html">Image Gallery</a>
+          <a href="hiddentalent.html">Hidden Talent</a>
+          <a href="https://www.linkedin.com/in/jamieatucker/">LinkedIn</a>
+          <a href="https://github.com/Jamieatucker">Github</a>
+        </nav>
+        <img src="/images/My Headshot.jpeg" alt="A Picture of Jamie Tucker." class="center" id="headshot">
+        <p>Hello! My name is Jamie Tucker (Pronouns: he/him/his) and I am a rising Sophomore at The Ohio State University.
+          I'm currently majoring in Computer Science Engineering, 
+          learning the necessary skills to become a software engineer.
+        <p>I've been coding since middle school, starting with drag and drop
+          programs such as Scratch. I built a couple of game projects at various
+          summer camps and even a dance video!
+          As I got older, I experimented with other coding websites, such as Khan Academy and Codecademy,
+          to learn the basics of Java.
+          During my Junior year of high school, I enrolled into a tech campus called Oakland Schools Technical Campus (OSTC),
+          where I learned to build websites using HTML and CSS.
+          This tech campus sparked my passion to pursue a career in Computer Science with
+          their interactive engagement, fun projects, and overall supportive staff.
+        <p> Below are a few projects that I've built:
+        <ul>
+          <li><b>Pacific Trails Resort Website (OSTC, September 2017)
+          <li>Pokemon Battle Simulator (OSTC, May 2018)
+          <li>Stickman: On The Run Video Game (Freelance Camp, August 2018)
+          <li>Financial Literacy Simulator (OSU Hackathon, November 2019)
+          <li>Text-Based Hang Man (Personal Project, May 2020)</b>
+        </ul>
+        <img src="/images/mysportsphoto.jpg" alt="A Picture of Jamie Tucker with Two of his Friends at an Ohio State Football Game." class="center" id="sportphoto">
+        <p>When I'm not coding, I love to watch sports, play video games, and exercise at the gym.
+          I specifically love watching football and basketball (whether its college or professional).
+          Whenever the big game is on, I'm glued to the TV, watching all of the glorious action taking place.
+          My favorite sports teams are the Detroit Lions, Portland Trail Blazers, 
+          and the Golden State Warriors. I love playing on my PS4 and Nintendo Switch. Some of my favorite games
+          right now are Super Smash Bros. Ultimate, Dragon Ball Fighterz, and Rocket League.
+          Exercising at the gym is a great stress reliver for me. It allows me to vent out any struggles
+          I may be having, while gaining more muscle mass for myself.
+        <p>Click <button onclick="addRandomFact()">here</button> to see random facts about me!
+        <div id="fact-container"></div>
+        <hr id="divider">
+        <form class="requiresauth" action="/sports" method="POST">
+          <p class="requiresauth">What is Your Favorite Sport?
+          <br>
+          <select name="sport">
+            <option value="football">Football</option>
+            <option value="basketball">Basketball</option>
+            <option value="baseball">Baseball</option>
+            <option value="soccer">Soccer</option>
+            <option value="hockey">Hockey</option>
+            <option value="other">Other</option>
+          </select>
+          <button>Submit</button>
+        </form>
+        <div class="requiresauth" id="chart-container"></div>
+        <p id="unauth">Click <a href="/login"> here</a> to login and see/post comments. 
+        <p class="requiresauth"><b>Want to Leave a Comment?</b>
+        <br>
+        <label for="name">Name:</label>
+        <input id="username" type="text" name="name">
+        <br>
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment"></textarea>
+        <br><br>
+        <button onClick="submitComment()">Submit</button>
+        <p class="requiresauth"><b>How Many Comments Would You Like to See?</b>
+        <br><br>
+        <label for="numComments">Number of Comments:</label>
+        <input type="text" id="numComments" name="numComments" min="0">
+        <br>
+        <button onclick="getDataUsingAsyncAwait()">See Comments</button>
+        <button onclick="hideData()">Hide Comments</button>
+        <button id="delete-button" onclick="deleteDataUsingAsyncAwait()">Delete Comments</button>
+        <div id="data-container" class="requiresauth"></div>
+        <footer>
+          No copyright infringement is intended. <a href="imagegallery.html" id="nxpage"> Next </a>
+        </footer>
+      </div>
+    </body>
+</html>
