@@ -1,7 +1,7 @@
 /* IDs */
 
 #content {
-  background-color: #b0b7bc;
+  background-color: #F4B400;
   border-radius: 25px;
   border-style: outset;
   box-shadow: 9px 9px #666;
@@ -24,98 +24,12 @@
   visibility: hidden;
 }
 
-#data-container {
-  border: 15px;
-  border-style: groove;
-  display: none;
-  margin: 10px;
-  padding: 30px;
-  text-align: center;
-  visibility: hidden;
-}
-
 #divider {
   background-color: #ce0f3d;
   color: #ce0f3d;
   height: 15px;
   list-style-type: none;
   width: auto;
-}
-
-#fact-container {
-  border: 15px;
-  border-style: groove;
-  display: none;
-  margin: 10px;
-  padding: 30px;
-  text-align: center;
-  visibility: hidden;
-}
-
-#headshot {
-  border: 15px;
-  border-color: #666;
-  border-style: groove;
-  width: 70%;
-}
-
-#hiddentalent-container {
-  display: none;
-  margin-top: 20px;
-  visibility: hidden;
-}
-
-#music {
-  display: none;
-  visibility: hidden;
-}
-
-#nba-data {
-  border: 15px;
-  border-style: groove;
-  display: none;
-  visibility: hidden;
-}
-
-#nba-player {
-  border: 15px;
-  border-style: groove;
-  display: none;
-  visibility: hidden;
-}
-
-#nxpage {
-  border: 4px;
-  border-color: #666;
-  border-style: groove;
-  margin-left: 65px;
-  margin-right: auto;
-  text-align: center;
-}
-
-#pvpage {
-  border: 4px;
-  border-color: #666;
-  border-style: groove;
-  margin-left: auto;
-  margin-right: 65px;
-  text-align: center;
-}
-
-#rollsafe {
-  border: 15px;
-  border-color: #666;
-  border-style: groove;
-  display: none;
-  width: 65%;
-  visibility: hidden;
-}
-
-#sportphoto {
-  border: 15px;
-  border-color: #666;
-  border-style: groove;
-  width: 65%;
 }
 
 #unauth {
@@ -139,80 +53,30 @@
 
 /* Main */
 
-audio {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
 body {
-  background-color: #ce0f3d;
-  background-image: url(/images/osubackground.jpg);
-}
-
-figure {
-  border: 15px;
-  border-color: #666;
-  border-style: groove;
-  margin: 25px;
-}
-
-figcaption {
-  border: 7px;
-  border-style: groove;
-  font-style: italic;
-  margin: 10px;
-}
-
-footer {
-  font-style: italic;
+  background-color: #4285F4;
 }
 
 h1 {
-  text-shadow: 4px 3px 4px #ce0f3d;
-}
-
-img {
-  height: 100%;
-  margin-top: 10px;
-  width: 100%;
-}
-
-nav {
-  background-color: #ce0f3d;
-  color: #fff;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  text-align: center;
-  word-spacing: 1px;
+  text-shadow: 4px 3px 4px #4285F4;
 }
 
 p {
-  border: 15px;
-  border-style: groove;
   margin: 10px;
   padding: 30px;
   text-align: center;
 }
 
-ul {
-  border: 15px;
-  border-style: groove;
-  list-style-type: none;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
 /* Links */
 
 a:active {
-  background-color: #ce0f3d;
+  background-color: #fbff00;
 }
 
 a:visited {
-  color: #fff;
+  color: #000;
 }
 
 a:hover {
-  background-color: #8d0a29;
+  background-color: #d9dd00;
 }
