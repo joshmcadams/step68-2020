@@ -1,0 +1,4 @@
+/home/jamietucker/step/walkthroughs/week-3-server/examples/todo-list/src/main/java/com/google/sps/servlets/NewTaskServlet.java
+/home/jamietucker/step/walkthroughs/week-3-server/examples/todo-list/src/main/java/com/google/sps/data/Task.java
+/home/jamietucker/step/walkthroughs/week-3-server/examples/todo-list/src/main/java/com/google/sps/servlets/DeleteTaskServlet.java
+/home/jamietucker/step/walkthroughs/week-3-server/examples/todo-list/src/main/java/com/google/sps/servlets/ListTasksServlet.java

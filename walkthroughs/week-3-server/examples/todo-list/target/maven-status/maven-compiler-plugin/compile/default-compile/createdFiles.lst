@@ -1,0 +1,4 @@
+com/google/sps/servlets/NewTaskServlet.class
+com/google/sps/servlets/ListTasksServlet.class
+com/google/sps/data/Task.class
+com/google/sps/servlets/DeleteTaskServlet.class

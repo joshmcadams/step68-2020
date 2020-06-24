@@ -1,0 +1,6 @@
+com/google/sps/servlets/Comments.class
+com/google/sps/data/Feedback.class
+com/google/sps/servlets/SportsData.class
+com/google/sps/servlets/Login.class
+com/google/sps/servlets/Comments$Comment.class
+com/google/sps/servlets/AuthStatus.class
