@@ -22,7 +22,13 @@ google.charts.setOnLoadCallback(drawChart);
  * Code editor to put on page.
  */
 function codeEditor() {
-  var myCodeEditor = codeMirror.fromTextArea(document.querySelector('#js'));
+  var myCodeEditor = CodeMirror.fromTextArea(document.querySelector('#js'), {
+    autocorrect: true,
+    lineNumbers: true,
+    mode: "javascript",
+    spellcheck: true,
+    theme: "base16-dark",
+  });
 }
 
 /**
@@ -39,16 +45,15 @@ function compile() {
   var code = document.querySelector('#code').contentWindow.document;
 
   // Runs the code
-  document.body.onkeyup = function() {
-    code.open();
-    code.writeln(
-      html + 
-      "<script>" + 
-      js.value + 
-      "</script>"
+  code.open();
+  code.writeln(
+    html + 
+    "<script>" + 
+    js.innerHTML + 
+    "</script>" + 
+    "</html>"
     );
-    code.close();
-  };
+  code.close();
 }
 
 /**

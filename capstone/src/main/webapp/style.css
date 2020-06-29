@@ -87,7 +87,7 @@ p {
 
 textarea {
   background: #f4f4f9;
-  display: block;
+  /*display: inline;
   float: top;
   font-family: Courier, sans-serif;
   font-size: 14px;
@@ -95,7 +95,7 @@ textarea {
   min-height: 250px;
   outline: none;
   overflow: scroll;
-  width: 80%;
+  width: 80%;*/
 }
 
 /* Links */

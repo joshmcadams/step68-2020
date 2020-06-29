@@ -8,16 +8,17 @@
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="script.js"></script>
     <!--CodeMirror links and scripts-->
-    <script src="lib/codemirror.js"></script>
-    <link rel="stylesheet" href="lib/codemirror.css">
-    <script src="mode/javascript/javascript.js"></script>
+    <script src="codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+    <script src="codemirror/mode/javascript/javascript.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/base16-dark.css">
   </head>
   <body onload="manageVisibility()">
     <div id="content">
       <h1>Looping</h1>
       <nav>
         <a href="/login">Login Status</a>
-        <a href="welcome.html">Home</a>
+        <a href="index.html">Home</a>
         <a href="conditionals.html">Conditionals</a>
         <a href="looping.html">Looping</a>
       </nav>
@@ -56,9 +57,16 @@
         your preference as to which one you want to use.
       <hr>
       <!--TODO: Add functionality to code iframe-->
-      <p>Check out this looping statement below!
-      <br>
-      <textarea id="js"></textarea>
+      <p>Check out this looping statement below!</p>
+      <textarea id="js">
+int number = 0;
+for(int i=0; i<3; i++){
+  number++;
+  console.writeln("Current Number: " + number);
+}
+console.writeln("Final Number: " + number);
+      </textarea>
+      <button onClick="compile()">Run Code</button>
       <iframe id="code"></iframe>
       <!--TODO: Add cards through Bootstrap to footer to allow user to change pages -->
       <footer>
