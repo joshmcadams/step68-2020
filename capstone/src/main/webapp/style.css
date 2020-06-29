@@ -65,6 +65,13 @@ h1 {
   text-shadow: 4px 3px 4px #4285F4;
 }
 
+iframe {
+  bottom: 0;
+  height: 35em;
+  position: relative;
+  width: 100%;
+}
+
 img {
   border: 15px;
   border-color: #666;
@@ -76,6 +83,19 @@ p {
   margin: 10px;
   padding: 30px;
   text-align: center;
+}
+
+textarea {
+  background: #f4f4f9;
+  /*display: inline;
+  float: top;
+  font-family: Courier, sans-serif;
+  font-size: 14px;
+  margin: auto;
+  min-height: 250px;
+  outline: none;
+  overflow: scroll;
+  width: 80%;*/
 }
 
 /* Links */
