@@ -56,18 +56,19 @@
         Both of these looping statements are great to use, so it depends on
         your preference as to which one you want to use.
       <hr>
-      <!--TODO: Add functionality to code iframe-->
-      <p>Check out this looping statement below!</p>
+      <p>Check out this looping statement below written in JavaScript!
+      <br>
+      <button onClick="compile()">Run Code</button>
       <textarea id="js">
-int number = 0;
-for(int i=0; i<3; i++){
+var number = 0;
+for(i=0; i<3; i++){
   number++;
   console.writeln("Current Number: " + number);
 }
 console.writeln("Final Number: " + number);
       </textarea>
-      <button onClick="compile()">Run Code</button>
-      <iframe id="code"></iframe>
+      <iframe src="loopingexample.html" title="Looping Example" id="code"></iframe>
+      <hr>
       <!--TODO: Add cards through Bootstrap to footer to allow user to change pages -->
       <footer>
         <a href="conditionals.html">Conditionals</a>

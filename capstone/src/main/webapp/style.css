@@ -24,6 +24,11 @@
   visibility: hidden;
 }
 
+#code {
+  display: none;
+  visibility: hidden;
+}
+
 #curry {
   width: 90%;
 }
@@ -34,6 +39,22 @@
   height: 15px;
   list-style-type: none;
   width: auto;
+}
+
+#leftimage {
+  height: 20%;
+  left: 5px;
+  position: absolute;
+  top: 702px;
+  width: 30%;
+}
+
+#rightimage {
+  height: 20%;
+  position: absolute;
+  right: 5px;
+  top: 702px;
+  width: 30%;
 }
 
 #unauth {
@@ -66,10 +87,14 @@ h1 {
 }
 
 iframe {
+  background-color: #fff;
+  border: 15px;
+  border-color: #666;
+  border-style: groove;
   bottom: 0;
-  height: 35em;
+  height: 95px;
   position: relative;
-  width: 100%;
+  width: 95.4%;
 }
 
 img {
