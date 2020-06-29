@@ -19,6 +19,39 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 /**
+ * Code editor to put on page.
+ */
+function codeEditor() {
+  var myCodeEditor = codeMirror.fromTextArea(document.querySelector('#js'));
+}
+
+/**
+ * Runs the code in the text area.
+ */
+function compile() {
+  var html = 
+    '<html>' +
+    '<head>' + 
+    '<meta charset=\"UTF-8\">' + 
+    '</head>';
+
+  var js = document.querySelector('#js');
+  var code = document.querySelector('#code').contentWindow.document;
+
+  // Runs the code
+  document.body.onkeyup = function() {
+    code.open();
+    code.writeln(
+      html + 
+      "<script>" + 
+      js.value + 
+      "</script>"
+    );
+    code.close();
+  };
+}
+
+/**
  * Deletes all the comments from the 'Comments' servlet.
  */
 async function deleteDataUsingAsyncAwait() {
@@ -120,6 +153,7 @@ function manageVisibility() {
     unauth.style.visibility = 'hidden';
     unauth.style.display = 'none';
     });
+    codeEditor();
   }
 
 /**

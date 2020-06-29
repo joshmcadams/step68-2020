@@ -85,6 +85,19 @@ p {
   text-align: center;
 }
 
+textarea {
+  background: #f4f4f9;
+  display: block;
+  float: top;
+  font-family: Courier, sans-serif;
+  font-size: 14px;
+  margin: auto;
+  min-height: 250px;
+  outline: none;
+  overflow: scroll;
+  width: 80%;
+}
+
 /* Links */
 
 a:active {

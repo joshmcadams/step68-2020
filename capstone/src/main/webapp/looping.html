@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="script.js"></script>
+    <!--CodeMirror links and scripts-->
+    <script src="lib/codemirror.js"></script>
+    <link rel="stylesheet" href="lib/codemirror.css">
+    <script src="mode/javascript/javascript.js"></script>
   </head>
   <body onload="manageVisibility()">
     <div id="content">
@@ -53,7 +57,8 @@
       <hr>
       <!--TODO: Add functionality to code iframe-->
       <p>Check out this looping statement below!
-      <textarea id="java" placeholder="Java"></textarea>
+      <br>
+      <textarea id="js"></textarea>
       <iframe id="code"></iframe>
       <!--TODO: Add cards through Bootstrap to footer to allow user to change pages -->
       <footer>
