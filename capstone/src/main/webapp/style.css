@@ -24,6 +24,10 @@
   visibility: hidden;
 }
 
+#curry {
+  width: 90%;
+}
+
 #divider {
   background-color: #ce0f3d;
   color: #ce0f3d;
@@ -59,6 +63,13 @@ body {
 
 h1 {
   text-shadow: 4px 3px 4px #4285F4;
+}
+
+img {
+  border: 15px;
+  border-color: #666;
+  border-style: groove;
+  margin-top: 10px;
 }
 
 p {
