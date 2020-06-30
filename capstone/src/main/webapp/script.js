@@ -155,6 +155,31 @@ function manageVisibility() {
   }
 
 /**
+ * Shows if the answer is correct or not.
+ */
+async function submitAnswer() {
+  const answer = document.querySelector('#selectpoints').value;
+  const dropdown = document.querySelector('#dropdown');
+  const right= document.querySelector('#right');
+  const wrong = document.querySelector('#wrong');
+
+  if (answer == 'eighteen') {
+    right.style.visibility = 'visible';
+    right.style.display = 'block';
+    wrong.style.visibility = 'hidden';
+    wrong.style.display = 'none';
+    dropdown.style.visibility = 'hidden';
+    dropdown.style.display = 'none';
+  }
+  else {
+    wrong.style.visibility = 'visible';
+    wrong.style.display = 'block';
+    right.style.visibility = 'hidden';
+    right.style.display = 'none';
+  }
+}
+
+/**
  * Submits the comment to the '/comment' servlet.
  */
 async function submitComment() {

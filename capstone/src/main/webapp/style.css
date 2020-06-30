@@ -49,6 +49,14 @@
   width: 30%;
 }
 
+#right {
+  border: 15px;
+  border-color: #0f9d58;
+  border-style: groove;
+  display: none;
+  visibility: hidden;
+}
+
 #rightimage {
   height: 20%;
   position: absolute;
@@ -58,6 +66,14 @@
 }
 
 #unauth {
+  display: none;
+  visibility: hidden;
+}
+
+#wrong {
+  border: 15px;
+  border-color: #db4437;
+  border-style: groove;
   display: none;
   visibility: hidden;
 }
@@ -102,23 +118,6 @@ body {
 button {
   margin-top: 10px;
 }
-
-/*footer {
-  background-color: #f4b400;
-  border-radius: 25px;
-  border-style: outset;
-  box-shadow: 3px 9px #666;
-  display: block;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-  text-align: center;
-  width: auto;
-  word-spacing: 3px;
-  margin-left: 360px;
-  margin-right: 365px;
-  padding-left: 500px;
-  padding-right: 500px;
-}*/
 
 h1 {
   text-shadow: 4px 3px 4px #4285f4;

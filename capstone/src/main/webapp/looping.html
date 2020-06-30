@@ -39,18 +39,18 @@
         Stephen Curry currently has six points. He takes five three-point shots and makes four of them.
         How many total points does Stephen Curry currently have?
       </p>
-      <!--TODO: Add functionality to buttons -->
-      <input type="radio" name="points" value="twelve">
-      <label for="twelve">Twelve</label>
-      <input type="radio" name="points" value="fourteen">
-      <label for="fourteen">Fourteen</label>
-      <input type="radio" name="points" value="eighteen" id="correct">
-      <label for="eighteen">Eighteen</label>
-      <input type="radio" name="points" value="ten">
-      <label for="ten">Ten</label>
-      <br>
-      <button onclick="submitAnswer()">Submit</button>
-      <p id="right"><b>That is correct! Stephen Curry started with six points and made five three-pointers.
+      <div id="dropdown">
+        <label for="ten">Choose the point total:</label>
+        <select id="selectpoints" name="points">
+          <option value="twelve">Twelve</option>
+          <option value="fourteen">Fourteen</option>
+          <option value="eighteen">Eighteen</option>
+          <option value="ten">Ten</option>
+        </select>
+        <br>
+        <button onclick="submitAnswer()">Submit</button>
+      </div>
+      <p id="right"><b>Eighteen is correct! Stephen Curry started with six points and made five three-pointers.
         By looping through each shot attempt he made, the point total ends up being eighteen points!</b></p>
       <p id="wrong"><b>Your answer is incorrect. Try again.</b></p>
       <hr>
@@ -78,6 +78,14 @@ for(i=0; i<3; i++){
 console.writeln("Final Number: " + number);
       </textarea>
       <iframe src="loopingexample.html" title="Looping Example" id="code"></iframe>
+      <hr>
+      <p>The for loop for this function increases the number until it has ran three times.
+        Once the for loop has ran three times, it exits the loop then displays the final number
+        with the <i>"console.writeln("Final Number: " + number);"</i> statement.
+        <br>
+        This was just a basic loop, as looping can become very complex and confusing!
+        Getting the basics of looping down early will help you when it comes to looping through
+        complex problems!
     </div>
     <div class="iformat">
       <!--TODO: Add cards through Bootstrap to footer to allow user to change pages -->
