@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0">
     <title>Looping - ECS</title>
     <link rel="stylesheet" href="style.css">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/base16-dark.css">
   </head>
   <body onload="manageVisibility()">
-    <div id="content">
+    <div class="iformat">
       <h1>Looping</h1>
       <nav>
         <a href="/login">Login Status</a>
@@ -22,7 +22,8 @@
         <a href="conditionals.html">Conditionals</a>
         <a href="looping.html">Looping</a>
       </nav>
-      <hr>
+    </div>
+    <div id="content">
       <img src="/images/loading.gif" alt="Loading Circle Animation" class="center">
       <p>I'm sure you've seen this symbol on many of your favorite websites and apps.
         It keeps moving the smaller circles in a circle until something is loaded or we exit.
@@ -37,12 +38,21 @@
         he earns three points to his point total.
         Stephen Curry currently has six points. He takes five three-point shots and makes four of them.
         How many total points does Stephen Curry currently have?
-      <br><br>
+      </p>
       <!--TODO: Add functionality to buttons -->
-      <input type="radio">Twelve
-      <input type="radio">Fourteen
-      <input type="radio">Eighteen
-      <input type="radio">Ten
+      <input type="radio" name="points" value="twelve">
+      <label for="twelve">Twelve</label>
+      <input type="radio" name="points" value="fourteen">
+      <label for="fourteen">Fourteen</label>
+      <input type="radio" name="points" value="eighteen" id="correct">
+      <label for="eighteen">Eighteen</label>
+      <input type="radio" name="points" value="ten">
+      <label for="ten">Ten</label>
+      <br>
+      <button onclick="submitAnswer()">Submit</button>
+      <p id="right"><b>That is correct! Stephen Curry started with six points and made five three-pointers.
+        By looping through each shot attempt he made, the point total ends up being eighteen points!</b></p>
+      <p id="wrong"><b>Your answer is incorrect. Try again.</b></p>
       <hr>
       <p>In Computer Science, the two most common types of looping statements are <b>while
         loops</b> and <b>for loops</b>.
@@ -68,7 +78,8 @@ for(i=0; i<3; i++){
 console.writeln("Final Number: " + number);
       </textarea>
       <iframe src="loopingexample.html" title="Looping Example" id="code"></iframe>
-      <hr>
+    </div>
+    <div class="iformat">
       <!--TODO: Add cards through Bootstrap to footer to allow user to change pages -->
       <footer>
         <a href="conditionals.html">Conditionals</a>
