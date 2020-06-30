@@ -22,38 +22,31 @@ google.charts.setOnLoadCallback(drawChart);
  * Code editor to put on page.
  */
 function codeEditor() {
+  var codeText = 
+    "int number = 0;" + 
+    "\nfor(int i=0; i<3; i++){" + 
+    "\n  number++;" + 
+    "\n  console.writeln(\"Current Number: \" + number);" + 
+    "\n}" + 
+    "\nconsole.writeln(\"Final Number: \" + number)";
+
   var myCodeEditor = CodeMirror.fromTextArea(document.querySelector('#js'), {
     autocorrect: true,
     lineNumbers: true,
     mode: "javascript",
     spellcheck: true,
     theme: "base16-dark",
+    value: codeText
   });
 }
 
 /**
- * Runs the code in the text area.
+ * "Runs" the code in the looping code editor.
  */
 function compile() {
-  var html = 
-    '<html>' +
-    '<head>' + 
-    '<meta charset=\"UTF-8\">' + 
-    '</head>';
-
-  var js = document.querySelector('#js');
-  var code = document.querySelector('#code').contentWindow.document;
-
-  // Runs the code
-  code.open();
-  code.writeln(
-    html + 
-    "<script>" + 
-    js.innerHTML + 
-    "</script>" + 
-    "</html>"
-    );
-  code.close();
+  // Display the output of the code on the page
+  document.querySelector('#code').style.visibility = 'visible';
+  document.querySelector('#code').style.display = 'block';
 }
 
 /**
