@@ -41,6 +41,19 @@
   width: auto;
 }
 
+#figcaption {
+  background-color: black;
+  color: white;
+  font-size: 0.1px;
+  font-style: italic;
+  padding: 2px;
+  text-align: center;
+}
+
+#icecreamtruck{
+    width: 75%;
+}
+
 #leftimage {
   height: 20%;
   left: 5px;
