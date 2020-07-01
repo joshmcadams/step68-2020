@@ -18,6 +18,30 @@
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
+/** 
+ * Responds to dropdown question on welcome page
+ */
+function techAnswer(){
+  const incorrect = document.querySelector('#incorrect');
+  incorrect.style.display = 'block';
+  incorrect.style.visibility = 'visible';
+}
+
+/** 
+ * Give up response to dropdown question on welcome page
+ */
+function giveUp(){
+  const incorrect = document.querySelector('#incorrect');
+  const response = document.querySelector('#gaveup');
+  const choices = document.querySelector('#welcome_question');
+  incorrect.style.visibility = 'hidden';
+  incorrect.style.display = 'none';
+  choices.style.visibility = 'hidden';
+  choices.style.display = 'none';
+  response.style.visibility = 'visible';
+  response.style.display = 'block';
+}
+
 /**
  * Deletes all the comments from the 'Comments' servlet.
  */

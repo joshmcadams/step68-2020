@@ -41,6 +41,17 @@
   visibility: hidden;
 }
 
+#incorrect {
+  border: 15px;
+  display: none;
+  visibility: hidden;
+}
+
+#gaveup {
+  border: 15px;
+  display: none;
+  visibility: hidden;
+}
 /* Classes */
 
 .center {
