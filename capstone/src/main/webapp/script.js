@@ -34,12 +34,22 @@ function giveUp(){
   const incorrect = document.querySelector('#wrong');
   const response = document.querySelector('#right');
   const choices = document.querySelector('#welcome_question');
-  incorrect.style.visibility = 'hidden';
-  incorrect.style.display = 'none';
-  choices.style.visibility = 'hidden';
-  choices.style.display = 'none';
+  const submit = document.querySelector('#submit');
+  const answer = document.querySelector('#answer');
+  invisibleText(incorrect);
+  invisibleText(choices);
+  invisibleText(submit);
+  invisibleText(answer);
   response.style.visibility = 'visible';
   response.style.display = 'block';
+}
+
+/**
+ * Makes item invisible
+ */
+function invisibleText(item){
+  item.style.visibility = 'hidden';
+  item.style.display = 'none';
 }
 
 /**
