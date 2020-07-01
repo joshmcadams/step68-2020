@@ -134,6 +134,7 @@ button {
 
 h1 {
   text-shadow: 4px 3px 4px #4285f4;
+  font-size: 50px;
 }
 
 hr {
@@ -157,6 +158,10 @@ img {
   border-color: #666;
   border-style: groove;
   margin-top: 10px;
+}
+
+nav {
+  margin-top: -20px;
 }
 
 p {
