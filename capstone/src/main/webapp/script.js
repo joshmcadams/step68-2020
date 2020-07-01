@@ -23,8 +23,7 @@ google.charts.setOnLoadCallback(drawChart);
  */
 function techAnswer(){
   const incorrect = document.querySelector('#wrong');
-  incorrect.style.display = 'block';
-  incorrect.style.visibility = 'visible';
+  visibleText(incorrect);
 }
 
 /** 
@@ -40,8 +39,7 @@ function giveUp(){
   invisibleText(choices);
   invisibleText(submit);
   invisibleText(answer);
-  response.style.visibility = 'visible';
-  response.style.display = 'block';
+  visibleText(response);
 }
 
 /**
@@ -50,6 +48,14 @@ function giveUp(){
 function invisibleText(item){
   item.style.visibility = 'hidden';
   item.style.display = 'none';
+}
+
+/**
+ * Makes item visible
+ */
+function visibleText(item){
+  item.style.visibility = 'visible';
+  item.style.display = 'block';
 }
 
 /**
