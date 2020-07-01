@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0">
     <title>Looping - ECS</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="script.js"></script>
+    <!--CodeMirror links and scripts-->
+    <script src="codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+    <script src="codemirror/mode/javascript/javascript.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/base16-dark.css">
   </head>
   <body onload="manageVisibility()">
-    <div id="content">
+    <div class="iformat">
       <h1>Looping</h1>
       <nav>
         <a href="/login">Login Status</a>
@@ -18,7 +23,8 @@
         <a href="looping.html">Looping</a>
         <a href="about.html">About Us</a>
       </nav>
-      <hr>
+    </div>
+    <div id="content">
       <img src="/images/loading.gif" alt="Loading Circle Animation" class="center">
       <p>I'm sure you've seen this symbol on many of your favorite websites and apps.
         It keeps moving the smaller circles in a circle until something is loaded or we exit.
@@ -33,12 +39,21 @@
         he earns three points to his point total.
         Stephen Curry currently has six points. He takes five three-point shots and makes four of them.
         How many total points does Stephen Curry currently have?
-      <br><br>
-      <!--TODO: Add functionality to buttons -->
-      <input type="radio">Twelve
-      <input type="radio">Fourteen
-      <input type="radio">Eighteen
-      <input type="radio">Ten
+      </p>
+      <div id="dropdown">
+        <label for="ten">Choose the point total:</label>
+        <select id="selectpoints" name="points">
+          <option value="twelve">Twelve</option>
+          <option value="fourteen">Fourteen</option>
+          <option value="eighteen">Eighteen</option>
+          <option value="ten">Ten</option>
+        </select>
+        <br>
+        <button onclick="submitAnswer()">Submit</button>
+      </div>
+      <p id="right"><b>Eighteen is correct! Stephen Curry started with six points and made five three-pointers.
+        By looping through each shot attempt he made, the point total ends up being eighteen points!</b></p>
+      <p id="wrong"><b>Your answer is incorrect. Try again.</b></p>
       <hr>
       <p>In Computer Science, the two most common types of looping statements are <b>while
         loops</b> and <b>for loops</b>.
@@ -51,6 +66,29 @@
         <br>
         Both of these looping statements are great to use, so it depends on
         your preference as to which one you want to use.
+      <hr>
+      <p>Check out this looping statement below written in JavaScript!
+      <br>
+      <button onClick="compile()">Run Code</button>
+      <textarea id="js">
+var number = 0;
+for(i=0; i<3; i++){
+  number++;
+  console.writeln("Current Number: " + number);
+}
+console.writeln("Final Number: " + number);
+      </textarea>
+      <iframe src="loopingexample.html" title="Looping Example" id="code"></iframe>
+      <hr>
+      <p>The for loop for this function increases the number until it has ran three times.
+        Once the for loop has ran three times, it exits the loop then displays the final number
+        with the <i>"console.writeln("Final Number: " + number);"</i> statement.
+        <br>
+        This was just a basic loop, as looping can become very complex and confusing!
+        Getting the basics of looping down early will help you when it comes to looping through
+        complex problems!
+    </div>
+    <div class="iformat">
       <!--TODO: Add cards through Bootstrap to footer to allow user to change pages -->
       <footer>
         <a href="conditionals.html">Conditionals</a>

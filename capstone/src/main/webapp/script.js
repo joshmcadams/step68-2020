@@ -43,6 +43,37 @@ function giveUp(){
 }
 
 /**
+ * Code editor to put on page.
+ */
+function codeEditor() {
+  var codeText = 
+    "int number = 0;" + 
+    "\nfor(int i=0; i<3; i++){" + 
+    "\n  number++;" + 
+    "\n  console.writeln(\"Current Number: \" + number);" + 
+    "\n}" + 
+    "\nconsole.writeln(\"Final Number: \" + number)";
+
+  var myCodeEditor = CodeMirror.fromTextArea(document.querySelector('#js'), {
+    autocorrect: true,
+    lineNumbers: true,
+    mode: "javascript",
+    spellcheck: true,
+    theme: "base16-dark",
+    value: codeText
+  });
+}
+
+/**
+ * "Runs" the code in the looping code editor.
+ */
+function compile() {
+  // Display the output of the code on the page
+  document.querySelector('#code').style.visibility = 'visible';
+  document.querySelector('#code').style.display = 'block';
+}
+
+/**
  * Deletes all the comments from the 'Comments' servlet.
  */
 async function deleteDataUsingAsyncAwait() {
@@ -144,7 +175,33 @@ function manageVisibility() {
     unauth.style.visibility = 'hidden';
     unauth.style.display = 'none';
     });
+    codeEditor();
   }
+
+/**
+ * Shows if the answer is correct or not.
+ */
+async function submitAnswer() {
+  const answer = document.querySelector('#selectpoints').value;
+  const dropdown = document.querySelector('#dropdown');
+  const right= document.querySelector('#right');
+  const wrong = document.querySelector('#wrong');
+
+  if (answer == 'eighteen') {
+    right.style.visibility = 'visible';
+    right.style.display = 'block';
+    wrong.style.visibility = 'hidden';
+    wrong.style.display = 'none';
+    dropdown.style.visibility = 'hidden';
+    dropdown.style.display = 'none';
+  }
+  else {
+    wrong.style.visibility = 'visible';
+    wrong.style.display = 'block';
+    right.style.visibility = 'hidden';
+    right.style.display = 'none';
+  }
+}
 
 /**
  * Submits the comment to the '/comment' servlet.
