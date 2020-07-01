@@ -13,11 +13,11 @@
 // limitations under the License.
 
 /**
- * Packages needed for certain APIs
+ * Packages/variables needed for certain APIs and functions
  */
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
-
+var slideIndex;
 /** 
  * Responds to dropdown question on welcome page
  */
@@ -191,8 +191,37 @@ function manageVisibility() {
     unauth.style.visibility = 'hidden';
     unauth.style.display = 'none';
     });
-    codeEditor();
+  codeEditor();
+  slideIndex = 1;
+  showSlides(slideIndex);
   }
+
+/**
+ * Adds or subtracts one to the slideIndex.
+ */
+function moveSlide(n) {
+  showSlides(slideIndex += n);
+}
+
+/**
+ * Shows the image with the given slideIndex and hides the other images.
+ */
+function showSlides(n) {
+  var slides = document.querySelectorAll('.loopSlides');
+  var exp = document.querySelectorAll('.explanation');
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+    exp[i].style.display = 'none';
+  }
+  slides[slideIndex-1].style.display = 'block';
+  exp[slideIndex-1].style.display = 'block';
+}
 
 /**
  * Shows if the answer is correct or not.
