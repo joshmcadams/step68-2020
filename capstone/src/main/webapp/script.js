@@ -18,6 +18,46 @@
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
+/** 
+ * Responds to dropdown question on welcome page
+ */
+function techAnswer(){
+  const incorrect = document.querySelector('#wrong');
+  visibleText(incorrect);
+}
+
+/** 
+ * Give up response to dropdown question on welcome page
+ */
+function giveUp(){
+  const incorrect = document.querySelector('#wrong');
+  const response = document.querySelector('#right');
+  const choices = document.querySelector('#welcome_question');
+  const submit = document.querySelector('#submit');
+  const answer = document.querySelector('#answer');
+  invisibleText(incorrect);
+  invisibleText(choices);
+  invisibleText(submit);
+  invisibleText(answer);
+  visibleText(response);
+}
+
+/**
+ * Makes item invisible
+ */
+function invisibleText(item){
+  item.style.visibility = 'hidden';
+  item.style.display = 'none';
+}
+
+/**
+ * Makes item visible
+ */
+function visibleText(item){
+  item.style.visibility = 'visible';
+  item.style.display = 'block';
+}
+
 /**
  * Code editor to put on page.
  */
