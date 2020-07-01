@@ -1,7 +1,7 @@
 /* IDs */
 
 #content {
-  background-color: #F4B400;
+  background-color: #f4b400;
   border-radius: 25px;
   border-style: outset;
   box-shadow: 9px 9px #666;
@@ -62,6 +62,14 @@
   width: 30%;
 }
 
+#right {
+  border: 15px;
+  border-color: #0f9d58;
+  border-style: groove;
+  display: none;
+  visibility: hidden;
+}
+
 #rightimage {
   height: 20%;
   position: absolute;
@@ -75,6 +83,14 @@
   visibility: hidden;
 }
 
+#wrong {
+  border: 15px;
+  border-color: #db4437;
+  border-style: groove;
+  display: none;
+  visibility: hidden;
+}
+
 /* Classes */
 
 .center {
@@ -82,6 +98,23 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+}
+
+.iformat {
+  background-color: #f4b400;
+  border-radius: 25px;
+  border-style: outset;
+  box-shadow: 3px 9px #666;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  text-align: center;
+  width: auto;
+  word-spacing: 3px;
+  margin-left: 360px;
+  margin-right: 365px;
+  padding-left: 500px;
+  padding-right: 500px;
 }
 
 .requiresauth {
@@ -92,11 +125,20 @@
 /* Main */
 
 body {
-  background-color: #4285F4;
+  background-color: #4285f4;
+}
+
+button {
+  margin-top: 10px;
 }
 
 h1 {
-  text-shadow: 4px 3px 4px #4285F4;
+  text-shadow: 4px 3px 4px #4285f4;
+}
+
+hr {
+  border: 5px;
+  border-style: groove;
 }
 
 iframe {
@@ -138,5 +180,5 @@ a:visited {
 }
 
 a:hover {
-  background-color: #d9dd00;
+  background-color: #9dbdff;
 }
