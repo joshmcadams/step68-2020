@@ -102,7 +102,7 @@ public class LoopingData extends HttpServlet {
     response.getWriter().println(gson.toJson(dataEntity));
 
     // Redirect to the page the user was just on
-    //String redirect = request.getHeader("Referer");
-    //response.sendRedirect(redirect);
+    String redirect = request.getHeader("Referer");
+    response.sendRedirect(redirect);
   }
 }
