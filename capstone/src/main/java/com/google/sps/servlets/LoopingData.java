@@ -64,7 +64,7 @@ public class LoopingData extends HttpServlet {
       }
       else {
         newAnswer = 1;
-        loopAnswers.put(sport, newAnswer);
+        loopAnswers.put(answer, newAnswer);
       }
     } 
     
@@ -78,7 +78,7 @@ public class LoopingData extends HttpServlet {
     // Get the submission details
     String answer = request.getParameter("points");
     int currentAnswers = submissions.get(answer);
-    if (currentAnswers == null) {
+    if (currentAnswers < 0) {
       currentAnswers = 1;
     }
     long timestamp = System.currentTimeMillis();
