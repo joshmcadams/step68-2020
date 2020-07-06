@@ -39,7 +39,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/looping")
 public class LoopingData extends HttpServlet {
   
-  private Map<String, Integer> submissions = new HashMap<>();
+  private Map<String, Long> submissions = new HashMap<>();
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -53,18 +53,18 @@ public class LoopingData extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
     
-    Map<String, Integer> loopAnswers = new HashMap<>();
+    Map<String, Long> loopAnswers = new HashMap<>();
     for(Entity entity : results.asIterable()){
-      String answer = (String) entity.getProperty("Answer");
-      int newAnswer = (int) entity.getProperty("Submissions");
-      if (loopAnswers.containsKey(answer)) {
-        newAnswer = loopAnswers.get(answer);
+      String points = (String) entity.getProperty("Points");
+      long newAnswer = (long) entity.getProperty("Submissions");
+      if (loopAnswers.containsKey(points)) {
+        newAnswer = loopAnswers.get(points);
         newAnswer++;
-        loopAnswers.put(answer, newAnswer);
+        loopAnswers.put(points, newAnswer);
       }
       else {
         newAnswer = 1;
-        loopAnswers.put(answer, newAnswer);
+        loopAnswers.put(points, newAnswer);
       }
     } 
     
@@ -76,19 +76,20 @@ public class LoopingData extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Get the submission details
-    String answer = request.getParameter("points");
-    int currentAnswers = submissions.get(answer);
-    if (currentAnswers <= 0) {
-      currentAnswers = 1;
+    String points = request.getParameter("points");
+    long currentAnswers = 1;
+    if (submissions.containsKey(points)) {
+      currentAnswers = submissions.get(points);
+      currentAnswers++;
     }
     long timestamp = System.currentTimeMillis();
     
     // Add the entry back into the private HashMap
-    submissions.put(answer, currentAnswers);
+    submissions.put(points, currentAnswers);
 
     // Create an entity and set its properties
     Entity dataEntity = new Entity("LoopingData");
-    dataEntity.setProperty("Answer", answer);
+    dataEntity.setProperty("Points", points);
     dataEntity.setProperty("Submissions", currentAnswers);
     dataEntity.setProperty("Timestamp", timestamp);
 
@@ -102,7 +103,7 @@ public class LoopingData extends HttpServlet {
     response.getWriter().println(gson.toJson(dataEntity));
 
     // Redirect to the page the user was just on
-    String redirect = request.getHeader("Referer");
-    response.sendRedirect(redirect);
+    //String redirect = request.getHeader("Referer");
+    //response.sendRedirect(redirect);
   }
 }

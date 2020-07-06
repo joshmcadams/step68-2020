@@ -107,26 +107,27 @@ async function deleteDataUsingAsyncAwait() {
 }
 
 /**
-  * Fetches sport votes and uses it to create a chart.
+  * Fetches looping submissions and uses it to create a chart.
   */
 function drawChart() {
-  fetch('/sports').then(response => response.json())
-  .then((sportVotes) => {
+  fetch('/looping').then(response => response.json())
+  .then((loopAnswers) => {
     const data = new google.visualization.DataTable();
-    data.addColumn('string', 'Sport');
-    data.addColumn('number', 'Votes');
-    Object.keys(sportVotes).forEach((sport) => {
-      data.addRow([sport, sportVotes[sport]]);
+    data.addColumn('string', 'Points');
+    data.addColumn('number', 'Submissions');
+    Object.keys(loopAnswers).forEach((points) => {
+      data.addRow([points, loopAnswers[points]]);
     });
 
     const options = {
-      'title': 'Favorite Sports',
+      'title': 'Looping Answers',
       'width': 550,
       'height': 500,
       'backgroundColor': '#b0b7bc',
+      'pieHole': 0.4,
     };
 
-    const chart = new google.visualization.ColumnChart(
+    const chart = new google.visualization.PieChart(
         document.querySelector('#chart-container'));
     chart.draw(data, options);
   });
@@ -227,9 +228,17 @@ function showSlides(n) {
  * Shows if the answer is correct or not.
  */
 async function submitAnswer() {
+  // Retrieve the data from '/looping'
+  const data = {
+    'points': document.querySelector('#selectpoints').value,
+  };
+  const response = await fetch('/looping', {
+    method: 'POST',
+  });
+
   const answer = document.querySelector('#selectpoints').value;
   const dropdown = document.querySelector('#dropdown');
-  const right= document.querySelector('#right');
+  const right = document.querySelector('#right');
   const wrong = document.querySelector('#wrong');
 
   if (answer == 'eighteen') {
@@ -246,6 +255,9 @@ async function submitAnswer() {
     right.style.visibility = 'hidden';
     right.style.display = 'none';
   }
+  
+  // Put the submission on the chart
+  drawChart();
 }
 
 /**
