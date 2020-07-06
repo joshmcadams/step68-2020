@@ -18,6 +18,7 @@
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 var slideIndex;
+
 /** 
  * Responds to dropdown question on welcome page
  */
@@ -90,23 +91,6 @@ function compile() {
 }
 
 /**
- * Deletes all the comments from the 'Comments' servlet.
- */
-async function deleteDataUsingAsyncAwait() {
-  // Retrieve the data from '/comments' and delete the comments from the admin page
-  /* TODO: handle errors */
-  const response = await fetch('/comments', {
-    method: 'DELETE',
-  });
-  
-  // Delete the data from the page
-  const dataContainer = document.querySelector('#data-container');
-  dataContainer.style.visibility = 'hidden';
-  dataContainer.style.display = 'block';
-  dataContainer.innerHTML = data;
-}
-
-/**
   * Fetches looping submissions and uses it to create a chart.
   */
 function drawChart() {
@@ -135,26 +119,6 @@ function drawChart() {
   // Display the chart on to the page
   document.querySelector('#chart-container').style.visibility = 'visible';
   document.querySelector('#chart-container').style.display = 'block';
-}
-
-/**
- * Adds the data from the Comments servlet using async/await (the return values are used directly), and converts it to a JSON.
- */
-async function getDataUsingAsyncAwait() {
-  // Retrieve the data from '/comments'
-  /* TODO: handle errors */
-  const response = await fetch('/comments?numComments=' + document.querySelector('#numComments').value);
-  const data = await response.json();
-  var text = "";
-  for(i = 0; i < data.length; i++){
-    text += "<b>" + data[i].name + " " + data[i].email + "</b>" + " " + "<i>" + data[i].comment + "</i><br>";
-  }
-
-  // Add the data to the page
-  const dataContainer = document.querySelector('#data-container');
-  dataContainer.style.visibility = 'visible';
-  dataContainer.style.display = 'block';
-  dataContainer.innerHTML = text;
 }
 
 /**
@@ -225,16 +189,19 @@ function showSlides(n) {
 }
 
 /**
- * Shows if the answer is correct or not.
+ * Shows if the answer is correct or not and submits it to the 'looping' servlet.
  */
 async function submitAnswer() {
-  // Retrieve the data from '/looping'
-  const data = {
-    'points': document.querySelector('#selectpoints').value,
-  };
-  const response = await fetch('/looping', {
-    method: 'POST',
-  });
+  // Posts the answer, and when it is done it updates the chart
+  $.ajax({
+    type: 'POST', url: '/looping', 
+    data: {
+      // TODO: Add User ID so they can only submit once.
+      'points': document.querySelector('#selectpoints').value,
+    },
+  }).done(function(response) {
+        drawChart();
+  })
 
   const answer = document.querySelector('#selectpoints').value;
   const dropdown = document.querySelector('#dropdown');
@@ -242,61 +209,12 @@ async function submitAnswer() {
   const wrong = document.querySelector('#wrong');
 
   if (answer == 'eighteen') {
-    right.style.visibility = 'visible';
-    right.style.display = 'block';
-    wrong.style.visibility = 'hidden';
-    wrong.style.display = 'none';
-    dropdown.style.visibility = 'hidden';
-    dropdown.style.display = 'none';
+    visibleText(right);
+    invisibleText(wrong);
+    invisibleText(dropdown);
   }
   else {
-    wrong.style.visibility = 'visible';
-    wrong.style.display = 'block';
-    right.style.visibility = 'hidden';
-    right.style.display = 'none';
+    visibleText(wrong);
+    invisibleText(right);
   }
-  
-  // Put the submission on the chart
-  drawChart();
-}
-
-/**
- * Submits the comment to the '/comment' servlet.
- */
-async function submitComment() {
-  // Retrieve the data from '/comments'
-  const data = {
-    'name': document.querySelector('#username').value,
-    'comment': document.querySelector('#comment').value,
-  };
-  const response = await fetch('/comments', {
-    method: 'POST',
-    body: JSON.stringify(data)
-  });
-
-  // Set the values to empty strings so the next data can be itself
-  document.querySelector('#username').value = "";
-  document.querySelector('#comment').value = "";
-
-  // Put the text on the page
-  getDataUsingAsyncAwait();
-}
-
-/**
- * Submits the vote to the '/sports' servlet.
- */
-async function submitVote() {
-  // Retrieve the data from '/comments'
-  const data = {
-    'sport': document.querySelector('#selectsport').value,
-  };
-  const response = await fetch('/sports', {
-    method: 'POST',
-  });
-
-  // Set the values to empty strings so the next data can be itself
-  document.querySelector('#selectsport').value = "";
-
-  // Put the vote on the graph
-  drawChart();
 }

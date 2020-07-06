@@ -27,6 +27,7 @@ import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 import com.google.gson.Gson;
 import java.io.IOException;
+import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -61,10 +62,12 @@ public class LoopingData extends HttpServlet {
         newAnswer = loopAnswers.get(points);
         newAnswer++;
         loopAnswers.put(points, newAnswer);
+        submissions.put(points, newAnswer);
       }
       else {
         newAnswer = 1;
         loopAnswers.put(points, newAnswer);
+        submissions.put(points, newAnswer);
       }
     } 
     
@@ -84,7 +87,7 @@ public class LoopingData extends HttpServlet {
     }
     long timestamp = System.currentTimeMillis();
     
-    // Add the entry back into the private HashMap
+    // Add the entry into the private HashMap
     submissions.put(points, currentAnswers);
 
     // Create an entity and set its properties
