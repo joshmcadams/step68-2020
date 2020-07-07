@@ -66,10 +66,11 @@
 }
 
 #leftimage {
-  height: 20%;
-  left: 5px;
+  border: 0;
+  height: 60%;
+  left: 100px;
   position: absolute;
-  top: 702px;
+  top: 2150px;
   width: 30%;
 }
 
@@ -82,10 +83,11 @@
 }
 
 #rightimage {
-  height: 20%;
+  border: 0;
+  height: 60%;
   position: absolute;
-  right: 5px;
-  top: 702px;
+  right: 100px;
+  top: 2150px;
   width: 30%;
 }
 
@@ -149,6 +151,9 @@
 /* Main */
 
 body {
+  animation-name: gradient;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
   background-color: #4285f4;
 }
 
@@ -210,4 +215,14 @@ a:visited {
 
 a:hover {
   background-color: #9dbdff;
+}
+
+/* Animations */
+
+@keyframes gradient {
+  0%   {background-color:#db4437;}
+  25%  {background-color:#f4b400;}
+  50%  {background-color:#4285f4;}
+  75%  {background-color:#0f9d58;}
+  100% {background-color:#db4437;}
 }
