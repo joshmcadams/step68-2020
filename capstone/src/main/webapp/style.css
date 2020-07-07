@@ -66,8 +66,9 @@
 }
 
 #leftimage {
+  border: 0;
   height: 60%;
-  left: 10px;
+  left: 100px;
   position: absolute;
   top: 2150px;
   width: 23%;
@@ -87,7 +88,7 @@
   position: absolute;
   right: 100px;
   top: 2150px;
-  width: 30%;
+  width: 24%;
 }
 
 #topic {
