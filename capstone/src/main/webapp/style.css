@@ -66,12 +66,11 @@
 }
 
 #leftimage {
-  border: 0;
   height: 60%;
-  left: 100px;
+  left: 10px;
   position: absolute;
   top: 2150px;
-  width: 30%;
+  width: 23%;
 }
 
 #right {
