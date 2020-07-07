@@ -13,10 +13,51 @@
 // limitations under the License.
 
 /**
- * Packages needed for certain APIs
+ * Packages/variables needed for certain APIs and functions
  */
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
+var slideIndex;
+
+/** 
+ * Responds to dropdown question on welcome page
+ */
+function techAnswer(){
+  const incorrect = document.querySelector('#wrong');
+  visibleText(incorrect);
+}
+
+/** 
+ * Give up response to dropdown question on welcome page
+ */
+function giveUp(){
+  const incorrect = document.querySelector('#wrong');
+  const response = document.querySelector('#right');
+  const choices = document.querySelector('#welcome_question');
+  const submit = document.querySelector('#submit');
+  const answer = document.querySelector('#answer');
+  invisibleText(incorrect);
+  invisibleText(choices);
+  invisibleText(submit);
+  invisibleText(answer);
+  visibleText(response);
+}
+
+/**
+ * Makes item invisible
+ */
+function invisibleText(item){
+  item.style.visibility = 'hidden';
+  item.style.display = 'none';
+}
+
+/**
+ * Makes item visible
+ */
+function visibleText(item){
+  item.style.visibility = 'visible';
+  item.style.display = 'block';
+}
 
 /**
  * Code editor to put on page.
@@ -50,43 +91,27 @@ function compile() {
 }
 
 /**
- * Deletes all the comments from the 'Comments' servlet.
- */
-async function deleteDataUsingAsyncAwait() {
-  // Retrieve the data from '/comments' and delete the comments from the admin page
-  /* TODO: handle errors */
-  const response = await fetch('/comments', {
-    method: 'DELETE',
-  });
-  
-  // Delete the data from the page
-  const dataContainer = document.querySelector('#data-container');
-  dataContainer.style.visibility = 'hidden';
-  dataContainer.style.display = 'block';
-  dataContainer.innerHTML = data;
-}
-
-/**
-  * Fetches sport votes and uses it to create a chart.
+  * Fetches looping submissions and uses it to create a chart.
   */
 function drawChart() {
-  fetch('/sports').then(response => response.json())
-  .then((sportVotes) => {
+  fetch('/looping').then(response => response.json())
+  .then((loopAnswers) => {
     const data = new google.visualization.DataTable();
-    data.addColumn('string', 'Sport');
-    data.addColumn('number', 'Votes');
-    Object.keys(sportVotes).forEach((sport) => {
-      data.addRow([sport, sportVotes[sport]]);
+    data.addColumn('string', 'Points');
+    data.addColumn('number', 'Submissions');
+    Object.keys(loopAnswers).forEach((points) => {
+      data.addRow([points, loopAnswers[points]]);
     });
 
     const options = {
-      'title': 'Favorite Sports',
+      'title': 'Looping Answers',
       'width': 550,
       'height': 500,
       'backgroundColor': '#b0b7bc',
+      'pieHole': 0.4,
     };
 
-    const chart = new google.visualization.ColumnChart(
+    const chart = new google.visualization.PieChart(
         document.querySelector('#chart-container'));
     chart.draw(data, options);
   });
@@ -94,26 +119,6 @@ function drawChart() {
   // Display the chart on to the page
   document.querySelector('#chart-container').style.visibility = 'visible';
   document.querySelector('#chart-container').style.display = 'block';
-}
-
-/**
- * Adds the data from the Comments servlet using async/await (the return values are used directly), and converts it to a JSON.
- */
-async function getDataUsingAsyncAwait() {
-  // Retrieve the data from '/comments'
-  /* TODO: handle errors */
-  const response = await fetch('/comments?numComments=' + document.querySelector('#numComments').value);
-  const data = await response.json();
-  var text = "";
-  for(i = 0; i < data.length; i++){
-    text += "<b>" + data[i].name + " " + data[i].email + "</b>" + " " + "<i>" + data[i].comment + "</i><br>";
-  }
-
-  // Add the data to the page
-  const dataContainer = document.querySelector('#data-container');
-  dataContainer.style.visibility = 'visible';
-  dataContainer.style.display = 'block';
-  dataContainer.innerHTML = text;
 }
 
 /**
@@ -151,71 +156,65 @@ function manageVisibility() {
     unauth.style.visibility = 'hidden';
     unauth.style.display = 'none';
     });
-    codeEditor();
+  codeEditor();
+  slideIndex = 1;
+  showSlides(slideIndex);
   }
 
 /**
- * Shows if the answer is correct or not.
+ * Adds or subtracts one to the slideIndex.
+ */
+function moveSlide(n) {
+  showSlides(slideIndex += n);
+}
+
+/**
+ * Shows the image with the given slideIndex and hides the other images.
+ */
+function showSlides(n) {
+  var slides = document.querySelectorAll('.loopSlides');
+  var exp = document.querySelectorAll('.explanation');
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+    exp[i].style.display = 'none';
+  }
+  slides[slideIndex-1].style.display = 'block';
+  exp[slideIndex-1].style.display = 'block';
+}
+
+/**
+ * Shows if the answer is correct or not and submits it to the 'looping' servlet.
  */
 async function submitAnswer() {
+  // Posts the answer, and when it is done it updates the chart
+  $.ajax({
+    type: 'POST', url: '/looping', 
+    data: {
+      // TODO: Add User ID so they can only submit once.
+      'points': document.querySelector('#selectpoints').value,
+    },
+  }).done(function(response) {
+        drawChart();
+  })
+
   const answer = document.querySelector('#selectpoints').value;
   const dropdown = document.querySelector('#dropdown');
-  const right= document.querySelector('#right');
+  const right = document.querySelector('#right');
   const wrong = document.querySelector('#wrong');
 
   if (answer == 'eighteen') {
-    right.style.visibility = 'visible';
-    right.style.display = 'block';
-    wrong.style.visibility = 'hidden';
-    wrong.style.display = 'none';
-    dropdown.style.visibility = 'hidden';
-    dropdown.style.display = 'none';
+    visibleText(right);
+    invisibleText(wrong);
+    invisibleText(dropdown);
   }
   else {
-    wrong.style.visibility = 'visible';
-    wrong.style.display = 'block';
-    right.style.visibility = 'hidden';
-    right.style.display = 'none';
+    visibleText(wrong);
+    invisibleText(right);
   }
-}
-
-/**
- * Submits the comment to the '/comment' servlet.
- */
-async function submitComment() {
-  // Retrieve the data from '/comments'
-  const data = {
-    'name': document.querySelector('#username').value,
-    'comment': document.querySelector('#comment').value,
-  };
-  const response = await fetch('/comments', {
-    method: 'POST',
-    body: JSON.stringify(data)
-  });
-
-  // Set the values to empty strings so the next data can be itself
-  document.querySelector('#username').value = "";
-  document.querySelector('#comment').value = "";
-
-  // Put the text on the page
-  getDataUsingAsyncAwait();
-}
-
-/**
- * Submits the vote to the '/sports' servlet.
- */
-async function submitVote() {
-  // Retrieve the data from '/comments'
-  const data = {
-    'sport': document.querySelector('#selectsport').value,
-  };
-  const response = await fetch('/sports', {
-    method: 'POST',
-  });
-
-  // Set the values to empty strings so the next data can be itself
-  document.querySelector('#selectsport').value = "";
-
-  // Put the vote on the graph
-  drawChart();
 }

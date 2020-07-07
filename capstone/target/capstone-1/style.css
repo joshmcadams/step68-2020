@@ -7,6 +7,7 @@
   box-shadow: 9px 9px #666;
   display: block;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
   line-height: 1.6;
   margin-left: auto;
   margin-right: auto;
@@ -30,6 +31,9 @@
 }
 
 #curry {
+  border: 15px;
+  border-color: #666;
+  border-style: groove;
   width: 90%;
 }
 
@@ -54,11 +58,19 @@
     width: 75%;
 }
 
+#loading {
+  border: 15px;
+  border-color: #666;
+  border-style: groove;
+  width: 50%;
+}
+
 #leftimage {
-  height: 20%;
-  left: 5px;
+  border: 0;
+  height: 60%;
+  left: 100px;
   position: absolute;
-  top: 702px;
+  top: 2150px;
   width: 30%;
 }
 
@@ -71,11 +83,16 @@
 }
 
 #rightimage {
-  height: 20%;
+  border: 0;
+  height: 60%;
   position: absolute;
-  right: 5px;
-  top: 702px;
+  right: 100px;
+  top: 2150px;
   width: 30%;
+}
+
+#topic {
+  font-size: 50px;
 }
 
 #unauth {
@@ -107,6 +124,7 @@
   box-shadow: 3px 9px #666;
   display: block;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
   line-height: 1.6;
   text-align: center;
   width: auto;
@@ -117,6 +135,14 @@
   padding-right: 500px;
 }
 
+.loopSlides{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 90%;
+}
+
 .requiresauth {
   display: none;
   visibility: hidden;
@@ -125,6 +151,9 @@
 /* Main */
 
 body {
+  animation-name: gradient;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
   background-color: #4285f4;
 }
 
@@ -160,6 +189,10 @@ img {
   margin-top: 10px;
 }
 
+nav {
+  margin-top: -20px;
+}
+
 p {
   margin: 10px;
   padding: 30px;
@@ -182,4 +215,14 @@ a:visited {
 
 a:hover {
   background-color: #9dbdff;
+}
+
+/* Animations */
+
+@keyframes gradient {
+  0%   {background-color:#db4437;}
+  25%  {background-color:#f4b400;}
+  50%  {background-color:#4285f4;}
+  75%  {background-color:#0f9d58;}
+  100% {background-color:#db4437;}
 }
