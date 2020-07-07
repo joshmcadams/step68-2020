@@ -50,7 +50,12 @@ public class LoginServlet extends HttpServlet{
       response.getWriter().println(json);
     } else {
       String loginUrl = userService.createLoginURL("/");
-      response.sendRedirect(loginUrl);
+      StudentInfo studentInfo = new StudentInfo(new User("",""),"", loginUrl);
+      
+      Gson gson = new Gson();
+      String json = gson.toJson(studentInfo);
+      response.setContentType("application/json;");
+      response.getWriter().println(json);
     }   
   }
 
