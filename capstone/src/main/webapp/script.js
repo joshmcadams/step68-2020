@@ -96,26 +96,6 @@ function drawChart() {
   document.querySelector('#chart-container').style.display = 'block';
 }
 
-/**
- * Adds the data from the Comments servlet using async/await (the return values are used directly), and converts it to a JSON.
- */
-async function getDataUsingAsyncAwait() {
-  // Retrieve the data from '/comments'
-  /* TODO: handle errors */
-  const response = await fetch('/comments?numComments=' + document.querySelector('#numComments').value);
-  const data = await response.json();
-  var text = "";
-  for(i = 0; i < data.length; i++){
-    text += "<b>" + data[i].name + " " + data[i].email + "</b>" + " " + "<i>" + data[i].comment + "</i><br>";
-  }
-
-  // Add the data to the page
-  const dataContainer = document.querySelector('#data-container');
-  dataContainer.style.visibility = 'visible';
-  dataContainer.style.display = 'block';
-  dataContainer.innerHTML = text;
-}
-
 /** Displays login button when user is not signed in. */
 function displayLoginOption() {
 
