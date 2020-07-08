@@ -9,11 +9,10 @@
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="script.js"></script>
   </head>
-    <body>
+    <body onload="displayLoginOption()">
       <div id="content">
         <h1>Welcome to ECS</h1>
-        <nav>
-          <a href="/login">Login Status</a>
+          <a id="loginLink" href="#" onclick="login()">Login</a>
           <a href="index.html">Home</a>
           <a href="conditionals.html">Conditionals</a>
           <a href="looping.html">Looping</a>

@@ -121,6 +121,43 @@ function drawChart() {
   document.querySelector('#chart-container').style.display = 'block';
 }
 
+/** Displays login button when user is not signed in. */
+function displayLoginOption() {
+
+ fetch('/login')
+     .then(response=> response.json())
+     .then(studentInfo=> {
+     if (studentInfo.userId == null) {
+        document.querySelector("#loginLink").innerHTML = "Login";
+        console.log(studentInfo.userId);
+     } else {
+        document.querySelector("#loginLink").innerHTML = "Logout";
+     }
+     })
+     .catch((error) => {
+         console.error(error);
+         sessionStorage.setItem('logged-in','');
+         displayLoginOption();
+     });
+}
+
+function login(){
+
+  fetch('/login')
+    .then(response=> response.json())
+    .then(studentInfo=> {
+      //If user has nickname then display it if not use their user id.
+      const studentNickname = studentInfo.nickname || studentInfo.userId;
+      sessionStorage.setItem('logged-in', studentNickname);
+      window.location.href = studentInfo.logOutUrl;
+    })
+    .catch((error) => {
+        console.error(error);
+        sessionStorage.setItem('logged-in','');
+        displayLoginOption();
+    });
+}
+
 /**
  * Manages the visibility of certain content based on the login status of the user.
  */
