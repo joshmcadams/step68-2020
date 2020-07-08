@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0">
     <title>Looping - ECS</title>
+    <!--jQuery Script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Standard CSS Stylesheet-->
     <link rel="stylesheet" href="style.css">
+    <!--Script for Chart API-->
     <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <!--Standard script for multi-purpose use-->
     <script src="script.js"></script>
     <!--CodeMirror links and scripts-->
     <script src="codemirror/lib/codemirror.js"></script>
@@ -14,18 +19,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/base16-dark.css">
   </head>
   <body onload="manageVisibility()">
-    <div id="content">
-      <h1>Looping</h1>
+    <div class="iformat">
+      <h1 id="topic">Looping</h1>
       <nav>
         <a href="/login">Login Status</a>
         <a href="index.html">Home</a>
         <a href="conditionals.html">Conditionals</a>
         <a href="looping.html">Looping</a>
+        <a href="about.html">About Us</a>
       </nav>
-      <hr>
-      <img src="/images/loading.gif" alt="Loading Circle Animation" class="center">
+    </div>
+    <div id="content">
+      <img src="/images/loading.gif" alt="Loading Circle Animation" class="center" id="loading">
       <p>I'm sure you've seen this symbol on many of your favorite websites and apps.
-        It keeps moving the smaller circles in a circle until something is loaded or we exit.
+        It keeps moving the smaller circle in a circular motion until something is loaded or we exit.
         This is a prime example of looping! Looping allows us to do a certain task over and over and over
         (until we decide to stop it or it reaches a certain condition).
         We can also track what happens between each loop iteration!
@@ -37,12 +44,22 @@
         he earns three points to his point total.
         Stephen Curry currently has six points. He takes five three-point shots and makes four of them.
         How many total points does Stephen Curry currently have?
-      <br><br>
-      <!--TODO: Add functionality to buttons -->
-      <input type="radio">Twelve
-      <input type="radio">Fourteen
-      <input type="radio">Eighteen
-      <input type="radio">Ten
+      </p>
+      <div id="dropdown">
+        <label for="ten">Choose the point total:</label>
+        <select id="selectpoints" name="points">
+          <option value="twelve">Twelve</option>
+          <option value="fourteen">Fourteen</option>
+          <option value="eighteen">Eighteen</option>
+          <option value="ten">Ten</option>
+        </select>
+        <br>
+        <button onclick="submitAnswer()">Submit</button>
+      </div>
+      <p id="right"><b>Eighteen is correct! Stephen Curry started with six points and made five three-pointers.
+        By looping through each shot attempt he made, the point total ends up being eighteen points!</b></p>
+      <p id="wrong"><b>Your answer is incorrect. Try again.</b></p>
+      <div id="chart-container"></div>
       <hr>
       <p>In Computer Science, the two most common types of looping statements are <b>while
         loops</b> and <b>for loops</b>.
@@ -69,7 +86,40 @@ console.writeln("Final Number: " + number);
       </textarea>
       <iframe src="loopingexample.html" title="Looping Example" id="code"></iframe>
       <hr>
-      <!--TODO: Add cards through Bootstrap to footer to allow user to change pages -->
+      <h2>Step-by-Step Guide into Looping</h2>
+      <!--Images for the Slideshow-->
+      <img class="loopSlides" src="/images/looplineone.png" alt="For Loop Example Line One">
+      <img class="loopSlides" src="/images/looplinetwo.png" alt="For Loop Example Line Two">
+      <img class="loopSlides" src="/images/looplinethree.png" alt="For Loop Example Line Three">
+      <img class="loopSlides" src="/images/looplinefour.png" alt="For Loop Example Line Four">
+      <img class="loopSlides" src="/images/looplinefive.png" alt="For Loop Example Line Five">
+      <img class="loopSlides" src="/images/looplinesix.png" alt="For Loop Example Line Six">
+      <p class="explanation">The <b>number</b> variable is created to store the value of an integer.</p>
+      <p class="explanation">This function uses a <b>for loop</b>. A for loop has three required items
+        within its parenthesis: a counter variable, a conditional statement, and an incrementer/decrementer.
+        The <b>i=0;</b> creates the counter variable for the loop. The <b>i&#60;3;</b> is the conditional
+        statement. If <b>i</b> is less than three, than it will run the for loop, or else it moves to line 6.
+        The <b>i++;</b> is the incrementer for the loop. Once the for loop runs through each line within itself,
+        it keeps incrementing the <b>i</b> counter and runs lines 3-4 until the conditional statement is false.</p>
+      <p class="explanation">The <b>number++;</b> line adds one to the total of the variable <b>number</b>.</p>
+      <p class="explanation">The <b>console.writeln("Current Number: " + number);</b> line is a print statement.
+        What this means is that the page will display whatever is inside of the parenthesis. 
+        Since number is an integer variable, the page will print the value of the variable at its certain point.
+        So in this case, the page will print, <b>Current Number: <b>the value of number</b></b>.</p>
+      <p class="explanation">The curly bracket encloses the for loop.</p>
+      <p class="explanation">Once the for loop has ran three times, it exits the loop 
+        then displays the final number with the 
+        <b>"console.writeln("Final Number: " + number);"</b> statement.
+      </p>
+      <button onClick="moveSlide(-1)">&#10094; Previous</button>
+      <button onClick="moveSlide(1)">Next &#10095;</button>
+      <hr>
+      <p>This was just a basic loop, as looping can become very complex and confusing!
+        Getting the basics of looping down early will help you when it comes to looping through
+        complex problems!
+    </div>
+    <div class="iformat">
+      <!--TODO: Add cards through Bootstrap to footer to allow user to change pages-->
       <footer>
         <a href="conditionals.html">Conditionals</a>
       </footer>
