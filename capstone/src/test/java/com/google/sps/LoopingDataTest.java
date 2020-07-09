@@ -133,6 +133,23 @@ public final class LoopingDataTest extends Mockito {
   }
 
   @Test
+  public void falseAnswer() throws IOException {
+    when(request.getParameter("points")).thenReturn("Twelve");
+
+    StringWriter stringWriter = new StringWriter();
+    PrintWriter writer = new PrintWriter(stringWriter);
+    when(response.getWriter()).thenReturn(writer);
+
+    servlet.doPost(request, response);
+    writer.flush();
+
+    boolean actual = request.getParameter("points").equals("Eighteen");
+    boolean expected = false;
+
+    Assert.assertEquals(expected, actual);
+  }
+
+  @Test
   public void addLoopingEntities() {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
