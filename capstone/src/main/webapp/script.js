@@ -89,7 +89,6 @@ function displayLoginOption() {
      .then(studentInfo=> {
      if (studentInfo.userId == null) {
         document.querySelector("#loginLink").innerHTML = "Login";
-        console.log(studentInfo.userId);
      } else {
         document.querySelector("#loginLink").innerHTML = "Logout";
      }
@@ -155,6 +154,7 @@ function manageVisibility() {
     method: 'GET',
   }).then(function (response) {
     if (response.ok) {
+      document.querySelector("#loginLink").innerHTML = "Logout";
       for (let item of dataContainer) {
        item.style.visibility = 'visible';
        item.style.display = 'block'; 
@@ -164,6 +164,7 @@ function manageVisibility() {
       getDataUsingAsyncAwait();
     }
     else {
+      document.querySelector("#loginLink").innerHTML = "Login";  
       for (let item of dataContainer) {
         item.style.visibility = 'hidden';
         item.style.display = 'none'; 
