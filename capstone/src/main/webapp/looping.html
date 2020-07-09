@@ -18,15 +18,15 @@
     <script src="codemirror/mode/javascript/javascript.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/base16-dark.css">
   </head>
-  <body onload="manageVisibility()">
+  <body onload="displayLoginOption()">
     <div class="iformat">
       <h1 id="topic">Looping</h1>
       <nav>
-        <a href="/login">Login Status</a>
+        <a id="loginLink" href="#" onclick="login()">Login</a>
+        <a href="about.html">About Us</a>
         <a href="index.html">Home</a>
         <a href="conditionals.html">Conditionals</a>
         <a href="looping.html">Looping</a>
-        <a href="about.html">About Us</a>
       </nav>
     </div>
     <div id="content">
@@ -61,8 +61,8 @@
       <p id="wrong"><b>Your answer is incorrect. Try again.</b></p>
       <div id="chart-container"></div>
       <hr>
-      <img src="/images/pizzaguy.jpg" alt="Cool Slice of Pizza with Shades" id="leftimage">
-      <img src="/images/donuts.png" alt="Six Donuts" id="rightimage">
+      <img src="/images/donutstwo.png" alt="Six Donuts" id="leftimage">
+      <img src="/images/donuts.png" alt="Six More Donuts" id="rightimage">
       <p>In Computer Science, the two most common types of looping statements are <b>while
         loops</b> and <b>for loops</b>.
         <br>
@@ -126,5 +126,7 @@ console.writeln("Final Number: " + number);
         <a href="conditionals.html">Conditionals</a>
       </footer>
     </div>
-    </body>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+  </body>
 </html>

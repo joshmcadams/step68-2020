@@ -5,63 +5,64 @@
     <meta content="width=device-width, initial-scale=1.0">
     <title>Welcome! - ECS</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="bootstrap.min.css">
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="script.js"></script>
   </head>
-    <body onload="displayLoginOption()">
-      <div id="content">
-        <h1>Welcome to ECS</h1>
-          <a id="loginLink" href="#" onclick="login()">Login</a>
-          <a href="index.html">Home</a>
-          <a href="conditionals.html">Conditionals</a>
-          <a href="looping.html">Looping</a>
-          <a href="about.html">About Us</a>
-        </nav>
-        
-        <h2>Are you ready to code?</h2>
-        <p>
-            Welcome to our site! We are excited to teach you just how cool computer science
-            can be. Even if you don't know what computer science is, you can learn the basics
-            here and make cool programs!
-        </p>
-
-        <h2>Why should I learn?</h2>
-        <p>
-            Computer Science is the language of the future!
-            <br><br>
-            Every piece of technology you have uses computer science. It is how we talk to machines
-            and have them do what we want. Don't believe us? Well, maybe we're wrong. Try and pick 
-            one of the options you think doesn't use computer science:
-        </p>
-
-        <div id="welcome_question">
-          <select id="technology">
-            <option value="ipad">iPad</option>
-            <option value="iphone">iPhone</option>
-            <option value="laptop">Laptop</option>
-            <option value="xbox">Xbox</option>
-            <option value="playstation">Playstation</option>
-            <option value="fortnite">Fortnite</option>
-            <option value="2k">NBA 2k20</option>
-            <option value="tablet">Tablet</option>
-          </select>
-        </div>
-
-        <p id="wrong">Sorry, but that uses some computer science. Try again.</p>
-
-        <p id="right">
-            This was a trick question! Everything I included as a choice uses 
-            computer science! So, do you want to learn how to use it to?    
-        </p>
-        
-        <button id=submit onclick="techAnswer()">Submit</button>
-        <br>
-        <button id=answer onclick="giveUp()">Give up?</button>
-        
+  <body onload="displayLoginOption()">
+    <div class="iformat">
+      <h1 id="topic">Welcome to ECS</h1>
+      <nav>
+        <a id="loginLink" href="#" onclick="login()">Login</a>
+        <a href="about.html">About Us</a>
+        <a href="index.html">Home</a>
+        <a href="conditionals.html">Conditionals</a>
+        <a href="looping.html">Looping</a>
+      </nav>
+    </div>
+    <div id="content">
+      <h2>Are you ready to code?</h2>
+      <p>
+        Welcome to our site! We are excited to teach you just how cool computer science
+        can be. Even if you don't know what computer science is, you can learn the basics
+        here and make cool programs!
+      </p>
+      <h2>Why should I learn?</h2>
+      <p>
+        Computer Science is the language of the future!
+        <br><br>
+        Every piece of technology you have uses computer science. It is how we talk to machines
+        and have them do what we want. Don't believe us? Well, maybe we're wrong. Try and pick 
+        one of the options you think doesn't use computer science:
+      </p>
+      <div id="welcome_question">
+        <select id="technology">
+          <option value="ipad">iPad</option>
+          <option value="iphone">iPhone</option>
+          <option value="laptop">Laptop</option>
+          <option value="xbox">Xbox</option>
+          <option value="playstation">Playstation</option>
+          <option value="fortnite">Fortnite</option>
+          <option value="2k">NBA 2k20</option>
+          <option value="tablet">Tablet</option>
+        </select>
       </div>
-      <script src="jquery.slim.min.js"></script>
-      <script src="popper.min.js"></script>
-      <script src="bootstrap.min.js"></script>
-    </body>
+      <p id="wrong">Sorry, but that uses some computer science. Try again.</p>
+      <p id="right">
+        This was a trick question! Everything I included as a choice uses 
+        computer science! So, do you want to learn how to use it to?    
+      </p> 
+      <button id=submit onclick="techAnswer()">Submit</button>
+      <br>
+      <button id=answer onclick="giveUp()">Give up?</button>  
+    </div>
+    <div class="iformat">
+      <!--TODO: Add cards through Bootstrap to footer to allow user to change pages-->
+      <footer>
+        <a href="conditionals.html">Conditionals</a>
+      </footer>
+    </div>
+    <script src="jquery.slim.min.js"></script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+  </body>
 </html>

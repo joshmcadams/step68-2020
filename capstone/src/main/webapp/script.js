@@ -19,46 +19,6 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 var slideIndex;
 
-/** 
- * Responds to dropdown question on welcome page
- */
-function techAnswer(){
-  const incorrect = document.querySelector('#wrong');
-  visibleText(incorrect);
-}
-
-/** 
- * Give up response to dropdown question on welcome page
- */
-function giveUp(){
-  const incorrect = document.querySelector('#wrong');
-  const response = document.querySelector('#right');
-  const choices = document.querySelector('#welcome_question');
-  const submit = document.querySelector('#submit');
-  const answer = document.querySelector('#answer');
-  invisibleText(incorrect);
-  invisibleText(choices);
-  invisibleText(submit);
-  invisibleText(answer);
-  visibleText(response);
-}
-
-/**
- * Makes item invisible
- */
-function invisibleText(item){
-  item.style.visibility = 'hidden';
-  item.style.display = 'none';
-}
-
-/**
- * Makes item visible
- */
-function visibleText(item){
-  item.style.visibility = 'visible';
-  item.style.display = 'block';
-}
-
 /**
  * Code editor to put on page.
  */
@@ -107,7 +67,7 @@ function drawChart() {
       'title': 'Looping Answers',
       'width': 550,
       'height': 500,
-      'backgroundColor': '#b0b7bc',
+      'backgroundColor': '#f4b400',
       'pieHole': 0.4,
     };
 
@@ -139,6 +99,33 @@ function displayLoginOption() {
          sessionStorage.setItem('logged-in','');
          displayLoginOption();
      });
+  codeEditor();
+  slideIndex = 1;
+  showSlides(slideIndex);
+}
+
+/** 
+ * Give up response to dropdown question on welcome page
+ */
+function giveUp(){
+  const incorrect = document.querySelector('#wrong');
+  const response = document.querySelector('#right');
+  const choices = document.querySelector('#welcome_question');
+  const submit = document.querySelector('#submit');
+  const answer = document.querySelector('#answer');
+  invisibleText(incorrect);
+  invisibleText(choices);
+  invisibleText(submit);
+  invisibleText(answer);
+  visibleText(response);
+}
+
+/**
+ * Makes item invisible
+ */
+function invisibleText(item){
+  item.style.visibility = 'hidden';
+  item.style.display = 'none';
 }
 
 function login(){
@@ -254,4 +241,20 @@ async function submitAnswer() {
     visibleText(wrong);
     invisibleText(right);
   }
+}
+
+/** 
+ * Responds to dropdown question on welcome page
+ */
+function techAnswer(){
+  const incorrect = document.querySelector('#wrong');
+  visibleText(incorrect);
+}
+
+/**
+ * Makes item visible
+ */
+function visibleText(item){
+  item.style.visibility = 'visible';
+  item.style.display = 'block';
 }
