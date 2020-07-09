@@ -29,4 +29,20 @@ public final class StudentInfo{
     this.userId = user.getUserId();
   }
 
+  public String getEmail() {
+    return email;
+  }
+
+  public String getLogOutUrl() {
+    return logOutUrl;
+  }
+
+  public String getNickname() {
+    return nickname;
+  }
+
+  public String getUserId() {
+    return userId;
+  }
+
 }
