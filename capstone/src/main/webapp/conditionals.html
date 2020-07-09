@@ -8,16 +8,18 @@
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="script.js"></script>
   </head>
-  <body onload="manageVisibility()">
-    <div id="content">
-      <h1>Conditional Statements</h1>
+  <body onload="displayLoginOption()">
+    <div class="iformat">
+      <h1 id="topic">Conditionals</h1>
       <nav>
         <a id="loginLink" href="#" onclick="login()"></a>
+        <a href="about.html">About Us</a>
         <a href="index.html">Home</a>
         <a href="conditionals.html">Conditionals</a>
         <a href="looping.html">Looping</a>
-        <a href="about.html">About Us</a>
       </nav>
+    </div>
+    <div id="content">
       <p>Ever wondered what conditionals are? Let's dive in to understand 
         a fancy term given for what you already know.
       <p>Conditionals statements are features in computer science that
@@ -46,5 +48,14 @@
          The trolley is headed straight for them. You are standing some distance off in the train yard,
          next to a lever. What are the different selection situations that you can think of?
     </div>
+    <div class="iformat">
+      <!--TODO: Add cards through Bootstrap to footer to allow user to change pages-->
+      <footer>
+        <a href="looping.html">Looping</a>
+      </footer>
+    </div>
+    <script src="jquery.slim.min.js"></script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
     </body>
 </html>

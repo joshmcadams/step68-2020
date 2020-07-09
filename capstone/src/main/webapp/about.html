@@ -8,18 +8,19 @@
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="script.js"></script>
   </head>
-    <body onload="manageVisibility()">
-      <div id="content">
-        <h1>Welcome to ECS</h1>
-        <nav>
-          <a id="loginLink" href="#" onclick="login()"></a>
-          <a href="index.html">Home</a>
-          <a href="conditionals.html">Conditionals</a>
-          <a href="looping.html">Looping</a>
-          <a href="about.html">About Us</a>
-        </nav>
-        
-        <h2>Our goals:</h2>
+  <body onload="displayLoginOption()">
+    <div class="iformat">
+      <h1 id="topic">Welcome to ECS</h1>
+      <nav>
+        <a id="loginLink" href="#" onclick="login()"></a>
+        <a href="about.html">About Us</a>
+        <a href="index.html">Home</a>
+        <a href="conditionals.html">Conditionals</a>
+        <a href="looping.html">Looping</a>
+      </nav>
+    </div>
+    <div id="content">
+      <h2>Our goals:</h2>
         <p>
           Hello, and thank you for visiting ECS! ECS, or Elementary Computer Science, is a
           website we created with two very important goals in mind.
@@ -34,8 +35,7 @@
           Any child, no matter where they come from, should have an equal chance to learn and 
           practice computer science!
         </p>
-
-        <h2>Achieving them:</h2>
+      <h2>Achieving them:</h2>
         <p>
           We designed this website to be completely free and designed for everyone. In the 
           creation of this site, we always remembered our two goals.
@@ -53,9 +53,7 @@
           their parents when they don't understand a concept. Although their parents may not 
           know computer science, we designed this webste to be easily understandable by all! 
         </p>
-
-        <h2>Who are we?</h2>
-
+      <h2>Who are we?</h2>
         <h3>We are just three college students</h3>
         <p>
           This entire website, from scratch to finish, was constructed by three college students
@@ -68,9 +66,7 @@
           <br><br>
           For more specific information on all of us, scroll down just a little further!
         </p>
-
         <h3>Meet the Team:</h3>
-
         <h4>Sean Sanchez</h4>
         <p>
           Hi, my name is Sean Sanchez and I am a first generation rising junior at Cornell 
@@ -88,13 +84,10 @@
           and this website is my way of creating that equal playing field for some people to find
           theirs.
         </p>
-
         <h4>Praful Sigdel</h4>
         <p>
           Hello, I am Praful Sigdel. I am a rising junior pursuing Physics and Mechanical Engineering at Fisk University. 
-
         </p>
-
         <h4>Jamie Tucker</h4>
         <p>Hello! My name is Jamie Tucker (Pronouns: he/him/his) and I am a Black rising Sophomore at The Ohio State University.
           I'm currently majoring in Computer Science Engineering, 
@@ -114,5 +107,14 @@
           in these underrepresented communities to change that narrative!
         </p>
       </div>
+      <div class="iformat">
+        <!--TODO: Add cards through Bootstrap to footer to allow user to change pages-->
+        <footer>
+          <a href="index.html">Welcome Page</a>
+        </footer>
+      </div>
+      <script src="jquery.slim.min.js"></script>
+      <script src="popper.min.js"></script>
+      <script src="bootstrap.min.js"></script>
     </body>
 </html>
