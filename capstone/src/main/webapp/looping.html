@@ -31,6 +31,42 @@
     </div>
     <div id="content">
       <img src="/images/loading.gif" alt="Loading Circle Animation" class="center" id="loading">
+      <aside><i>Want to hear part of the lesson? 
+        <br>
+        Select a language:</i> 
+      <select id="lang" name="language">
+        <option value>------- Select language -------</option>
+        <option value="ca-es">Catalan</option>
+        <option value="zh-cn">Chinese (China)</option>
+        <option value="zh-hk">Chinese (Hong Kong)</option>
+        <option value="zh-tw">Chinese (Taiwan)</option>
+        <option value="da-dk">Danish</option>
+        <option value="nl-nl">Dutch</option>
+        <option value="en-au">English (Australia)</option>
+        <option value="en-ca">English (Canada)</option>
+        <option value="en-gb">English (Great Britain)</option>
+        <option value="en-in">English (India)</option>
+        <option value="en-us">English (United States)</option>
+        <option value="fi-fi">Finnish</option>
+        <option value="fr-ca">French (Canada)</option>
+        <option value="fr-fr">French (France)</option>
+        <option value="de-de">German</option>
+        <option value="it-it">Italian</option>
+        <option value="ja-jp">Japanese</option>
+        <option value="ko-kr">Korean</option>
+        <option value="nb-no">Norwegian</option>
+        <option value="pl-pl">Polish</option>
+        <option value="pt-br">Portuguese (Brazil)</option>
+        <option value="pt-pt">Portuguese (Portugal)</option>
+        <option value="ru-ru">Russian</option>
+        <option value="es-mx">Spanish (Mexico)</option>
+        <option value="es-es">Spanish (Spain)</option>
+        <option value="sv-se">Swedish (Sweden)</option>
+      </select>
+      <br>
+      <button onclick="textToVoice()">Listen</button>
+      <br>
+      <i>(It may take a few seconds for the audio to load.)</i></aside>
       <p>I'm sure you've seen this symbol on many of your favorite websites and apps.
         It keeps moving the smaller circle in a circular motion until something is loaded or we exit.
         This is a prime example of looping! Looping allows us to do a certain task over and over and over
@@ -107,7 +143,7 @@ console.writeln("Final Number: " + number);
       <p class="explanation">The <b>console.writeln("Current Number: " + number);</b> line is a print statement.
         What this means is that the page will display whatever is inside of the parenthesis. 
         Since number is an integer variable, the page will print the value of the variable at its certain point.
-        So in this case, the page will print, <b>Current Number: <b>the value of number</b></b>.</p>
+        So in this case, the page will print, <b>Current Number: the value of number</b>.</p>
       <p class="explanation">The curly bracket encloses the for loop.</p>
       <p class="explanation">Once the for loop has ran three times, it exits the loop 
         then displays the final number with the 
@@ -119,10 +155,14 @@ console.writeln("Final Number: " + number);
       <p>This was just a basic loop, as looping can become very complex and confusing!
         Getting the basics of looping down early will help you when it comes to looping through
         complex problems!
+      <div style="display: none">
+        <audio id="audioPlayer" src="" autoplay="autoplay">
+      </div>
     </div>
     <div class="iformat">
       <!--TODO: Add cards through Bootstrap to footer to allow user to change pages-->
       <footer>
+        <i>Text-to-Speech API provided by <a href="http://www.voicerss.org/default.aspx">Voice RSS</a></i>
         <a href="conditionals.html">Conditionals</a>
       </footer>
     </div>

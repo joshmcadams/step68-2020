@@ -18,6 +18,7 @@
 
 #chart-container {
   border: 15px;
+  border-color: #666;
   border-style: groove;
   display: none;
   margin: 10px;
