@@ -8,7 +8,7 @@
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="script.js"></script>
   </head>
-  <body onload="displayLoginOption()">
+  <body onload="manageVisibility()">
     <div class="iformat">
       <h1 id="topic">Conditionals</h1>
       <nav>
@@ -20,17 +20,18 @@
       </nav>
     </div>
     <div id="content">
-      <p>Ever wondered what conditionals are? Let's dive in to understand 
+      <p id="unauth">Please login to view the contents of the page.
+      <p class="requiresauth">Ever wondered what conditionals are? Let's dive in to understand 
         a fancy term given for what you already know.
-      <p>Conditionals statements are features in computer science that
+      <p class="requiresauth">Conditionals statements are features in computer science that
          your program decides to select.
          It's the same as selection conditions that you've been using in
          daily life.
-      <figure>
+      <figure class="requiresauth">
         <img src="/images/icecreamtruck.gif" alt="Ice-cream truck" class="center" id="icecreamtruck">
         <figcaption>Gif credit: https://giphy.com/gifs/NzImjTSUF53va/html5</figcaption>
       </figure>
-      <p>For instance, there is an ice-cream truck in a park.
+      <p class="requiresauth">For instance, there is an ice-cream truck in a park.
          What's the first question that comes to your mind? 
          Do I want an ice-cream? If you feel like having one, you will ask
          your parents to buy you one or you will decide may be next
@@ -40,10 +41,10 @@
          What flavor do you want? If vanilla you have to pay $1.99, else if strawberry pay $0.99,
          else if vanilla with chocolate chip then pay $3.99, and so on.
      
-      <p>Now, for computers to use similar workflow, programming languages--languages that are used
+      <p class="requiresauth">Now, for computers to use similar workflow, programming languages--languages that are used
          to communicate with computer--use different types of conditional statements. For example,
          if, if else, switch, else if, et cetera. For now, let's play a quick game.
-      <p>Suppose, There is a runaway trolley barreling down the railway tracks. 
+      <p class="requiresauth">Suppose, There is a runaway trolley barreling down the railway tracks. 
          Ahead, on the tracks, there are five people tied up and unable to move. 
          The trolley is headed straight for them. You are standing some distance off in the train yard,
          next to a lever. What are the different selection situations that you can think of?
@@ -51,7 +52,7 @@
     <div class="iformat">
       <!--TODO: Add cards through Bootstrap to footer to allow user to change pages-->
       <footer>
-        <a href="looping.html">Looping</a>
+        <a href="looping.html">Next</a>
       </footer>
     </div>
     <script src="jquery.slim.min.js"></script>
