@@ -18,7 +18,7 @@
     <script src="codemirror/mode/javascript/javascript.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/base16-dark.css">
   </head>
-  <body onload="displayLoginOption()">
+  <body onload="manageVisibility()">
     <div class="iformat">
       <h1 id="topic">Looping</h1>
       <nav>
@@ -31,9 +31,9 @@
     </div>
     <div id="content">
       <img src="/images/loading.gif" alt="Loading Circle Animation" class="center" id="loading">
-      <aside><i>Want to hear part of the lesson? 
+      <aside><b><i>Want to hear part of the lesson? 
         <br>
-        Select a language:</i> 
+        Select a language:</i></b> 
       <select id="lang" name="language">
         <option value>------- Select language -------</option>
         <option value="ca-es">Catalan</option>
@@ -66,7 +66,7 @@
       <br>
       <button onclick="textToVoice()">Listen</button>
       <br>
-      <i>(It may take a few seconds for the audio to load.)</i></aside>
+      <b><i>(It may take a few seconds for the audio to load.)</i></b></aside>
       <p>I'm sure you've seen this symbol on many of your favorite websites and apps.
         It keeps moving the smaller circle in a circular motion until something is loaded or we exit.
         This is a prime example of looping! Looping allows us to do a certain task over and over and over
