@@ -18,6 +18,7 @@
 
 #chart-container {
   border: 15px;
+  border-color: #666;
   border-style: groove;
   display: none;
   margin: 10px;
@@ -156,6 +157,8 @@ body {
   animation-duration: 15s;
   animation-iteration-count: infinite;
   background-color: #4285f4;
+  background-image: url("/images/donutstwo.png");
+  background-position: -2% 0%;
 }
 
 button {
