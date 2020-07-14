@@ -64,7 +64,7 @@ function drawChart() {
     });
 
     const options = {
-      'title': 'Looping Answers',
+      'title': 'Looping Answers (First Attempt)',
       'width': 565,
       'height': 450,
       'backgroundColor': '#f4b400',
