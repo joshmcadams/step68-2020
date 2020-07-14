@@ -64,7 +64,7 @@ function drawChart() {
     });
 
     const options = {
-      'title': 'Looping Answers',
+      'title': 'Looping Answers (First Attempt)',
       'width': 565,
       'height': 450,
       'backgroundColor': '#f4b400',
@@ -100,9 +100,6 @@ function displayLoginOption() {
          sessionStorage.setItem('logged-in','');
          displayLoginOption();
      });
-  codeEditor();
-  slideIndex = 1;
-  showSlides(slideIndex);
 }
 
 /** 
@@ -154,7 +151,12 @@ function login(){
  */
 function manageVisibility() {
   let dataContainer = document.querySelectorAll('.requiresauth');
+  let slides = document.querySelectorAll('.loopSlides');
+  let exp = document.querySelectorAll('.explanation');
+  let slideButton = document.querySelectorAll('.slidebutton');
   let unauth = document.querySelector('#unauth');
+  let firstExp = document.querySelector('#firstExp');
+  let js = document.querySelector('#js');
   fetch('/authstatus', {
     method: 'GET',
   }).then(function (response) {
@@ -164,15 +166,50 @@ function manageVisibility() {
        item.style.visibility = 'visible';
        item.style.display = 'block'; 
       }
+      for (let item of slides) {
+       item.style.visibility = 'visible';
+      }
+      for (let item of exp) {
+       item.style.visibility = 'visible';
+      }
+      for (let item of slideButton) {
+       item.style.visibility = 'visible';
+      }
+      if (js != null && firstExp != null && firstSlide != null) {
+        js.style.visibility = 'hidden';
+        js.style.display = 'none';
+        codeEditor();
+        slideIndex = 1;
+        showSlides(slideIndex);
+      }
       unauth.style.visibility = 'hidden';
       unauth.style.display = 'none';
-      getDataUsingAsyncAwait();
     }
     else {
       document.querySelector("#loginLink").innerHTML = "Login";  
       for (let item of dataContainer) {
         item.style.visibility = 'hidden';
         item.style.display = 'none'; 
+      }
+      for (let item of slides) {
+       item.style.visibility = 'hidden';
+       item.style.display = 'none';
+      }
+      for (let item of exp) {
+       item.style.visibility = 'hidden';
+       item.style.display = 'none';
+      }
+      for (let item of slideButton) {
+        item.style.visibility = 'hidden';
+        item.style.display = 'none';
+      }
+      if (js != null && firstExp != null && firstSlide != null) {
+        firstSlide.style.visibility = 'hidden';
+        firstSlide.style.display = 'none';
+        firstExp.style.visibility = 'hidden';
+        firstExp.style.display = 'none';
+        js.style.visibility = 'hidden';
+        js.style.display = 'none';
       }
       unauth.style.visibility = 'visible';
       unauth.style.display = 'block';
@@ -183,13 +220,30 @@ function manageVisibility() {
       item.style.visibility = 'hidden';
       item.style.display = 'none'; 
     }
+    for (let item of slides) {
+      item.style.visibility = 'hidden';
+      item.style.display = 'none';
+    }
+    for (let item of exp) {
+      item.style.visibility = 'hidden';
+      item.style.display = 'none';
+    }
+    for (let item of slideButton) {
+      item.style.visibility = 'hidden';
+      item.style.display = 'none';
+    }
+    if (js != null && firstExp != null && firstSlide != null) {
+      firstSlide.style.visibility = 'hidden';
+      firstSlide.style.display = 'none';
+      firstExp.style.visibility = 'hidden';
+      firstExp.style.display = 'none';
+      js.style.visibility = 'hidden';
+      js.style.display = 'none';
+    }
     unauth.style.visibility = 'hidden';
     unauth.style.display = 'none';
-    });
-  codeEditor();
-  slideIndex = 1;
-  showSlides(slideIndex);
-  }
+  });
+}
 
 /**
  * Adds or subtracts one to the slideIndex.
@@ -230,7 +284,7 @@ async function submitAnswer() {
       'points': document.querySelector('#selectpoints').value,
     },
   }).done(function(response) {
-        drawChart();
+      drawChart();
   })
 
   const answer = document.querySelector('#selectpoints').value;

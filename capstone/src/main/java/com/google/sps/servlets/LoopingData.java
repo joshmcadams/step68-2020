@@ -41,12 +41,17 @@ import javax.servlet.http.HttpServletResponse;
 public class LoopingData extends HttpServlet {
   
   private Map<String, Long> submissions = new HashMap<>();
+  private boolean hasSubmitted = false;
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     UserService userService = UserServiceFactory.getUserService();
+    String currUserId = "";
     if (!userService.isUserLoggedIn()) {
       response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+    }
+    else {
+      currUserId = userService.getCurrentUser().getUserId();
     }
     
     // Prepare the Query to store the entities you want to load
@@ -56,18 +61,34 @@ public class LoopingData extends HttpServlet {
     
     Map<String, Long> loopAnswers = new HashMap<>();
     for(Entity entity : results.asIterable()){
+      String userId = (String) entity.getProperty("UserID");
       String points = (String) entity.getProperty("Points");
       long newAnswer = (long) entity.getProperty("Submissions");
+
       if (loopAnswers.containsKey(points)) {
         newAnswer = loopAnswers.get(points);
         newAnswer++;
-        loopAnswers.put(points, newAnswer);
-        submissions.put(points, newAnswer);
+        if (currUserId.equals(userId) && hasSubmitted == false) {
+          loopAnswers.put(points, newAnswer);
+          submissions.put(points, newAnswer);
+          hasSubmitted = true;
+        }
+        else {
+          loopAnswers.put(points, newAnswer);
+          submissions.put(points, newAnswer);
+        }
       }
       else {
         newAnswer = 1;
-        loopAnswers.put(points, newAnswer);
-        submissions.put(points, newAnswer);
+        if (currUserId.equals(userId) && hasSubmitted == false) {
+          loopAnswers.put(points, newAnswer);
+          submissions.put(points, newAnswer);
+          hasSubmitted = true;
+        }
+        else {
+          loopAnswers.put(points, newAnswer);
+          submissions.put(points, newAnswer);
+        }
       }
     } 
     
@@ -78,6 +99,14 @@ public class LoopingData extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    UserService userService = UserServiceFactory.getUserService();
+    String currUserId = "";
+    if (!userService.isUserLoggedIn()) {
+      response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+    }
+    else {
+      currUserId = userService.getCurrentUser().getUserId();
+    }
     // Get the submission details
     String points = request.getParameter("points");
     long currentAnswers = 1;
@@ -95,10 +124,14 @@ public class LoopingData extends HttpServlet {
     dataEntity.setProperty("Points", points);
     dataEntity.setProperty("Submissions", currentAnswers);
     dataEntity.setProperty("Timestamp", timestamp);
+    dataEntity.setProperty("UserID", currUserId);
 
-    // Store the entities
+    // Store the entities if it's the user's first submission
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    datastore.put(dataEntity);
+    if (hasSubmitted == false) {
+      datastore.put(dataEntity);
+      hasSubmitted = true;
+    }
     
     // Send the JSON as the response
     response.setContentType("application/json;");

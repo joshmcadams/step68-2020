@@ -31,6 +31,11 @@
   visibility: hidden;
 }
 
+#code-button {
+  margin-bottom: 20px;
+  margin-top: -20px;
+}
+
 #curry {
   border: 15px;
   border-color: #666;
@@ -147,6 +152,8 @@
 
 .requiresauth {
   display: none;
+  margin-left: auto;
+  margin-right: auto;
   visibility: hidden;
 }
 
