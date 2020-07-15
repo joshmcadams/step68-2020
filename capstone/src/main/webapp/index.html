@@ -10,31 +10,48 @@
     <script src="script.js"></script>
   </head>
     <body onload="displayLoginOption()">
-      <div id="content">
-        <h1>Welcome to ECS</h1>
-          <a id="loginLink" href="#" onclick="login()">Login</a>
-          <a href="index.html">Home</a>
-          <a href="conditionals.html">Conditionals</a>
-          <a href="looping.html">Looping</a>
-          <a href="about.html">About Us</a>
-        </nav>
-        
-        <h2>Are you ready to code?</h2>
-        <p>
-            Welcome to our site! We are excited to teach you just how cool computer science
-            can be. Even if you don't know what computer science is, you can learn the basics
-            here and make cool programs!
+      <div class="border border-dark mx-auto content shadow-lg iformat">
+        <h1 class="text-center">Welcome to ECS</h1><br>
+          <nav class="navbar navbar-expand-lg navbar-light bg-info" style="border-radius:25px;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse justify-content-center navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav nav-tabs">
+                <li class="nav-item active">
+                  <a class="nav-link active" href="index.html">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="#" id="loginLink" onclick="login()">Login</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="conditionals.html">Conditionals</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="looping.html">Looping</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="about.html">About us</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="border border-dark mx-auto shadow-lg">
+        <h2 class="text-center">Are you ready to code?</h2>
+        <p>Welcome to our site! We are excited to teach you just how cool computer science
+          can be. Even if you don't know what computer science is, you can learn the basics
+          here and make cool programs!
         </p>
 
         <h2>Why should I learn?</h2>
-        <p>
-            Computer Science is the language of the future!
-            <br><br>
-            Every piece of technology you have uses computer science. It is how we talk to machines
-            and have them do what we want. Don't believe us? Well, maybe we're wrong. Try and pick 
-            one of the options you think doesn't use computer science:
+        <p>Computer Science is the language of the future!<br><br>
+          Every piece of technology you have uses computer science. It is how we talk to machines
+          and have them do what we want. Don't believe us? Well, maybe we're wrong. Try and pick 
+          one of the options you think doesn't use computer science:
         </p>
-
         <div id="welcome_question">
           <select id="technology">
             <option value="ipad">iPad</option>
@@ -58,7 +75,7 @@
         <button id=submit onclick="techAnswer()">Submit</button>
         <br>
         <button id=answer onclick="giveUp()">Give up?</button>
-        
+
       </div>
       <script src="jquery.slim.min.js"></script>
       <script src="popper.min.js"></script>

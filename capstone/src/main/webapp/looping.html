@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Standard CSS Stylesheet-->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
     <!--Script for Chart API-->
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <!--Standard script for multi-purpose use-->
@@ -19,17 +20,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/base16-dark.css">
   </head>
   <body onload="manageVisibility()">
-    <div class="iformat">
-      <h1 id="topic">Looping</h1>
-      <nav>
-        <a id="loginLink" href="#" onclick="login()"></a>
-        <a href="index.html">Home</a>
-        <a href="conditionals.html">Conditionals</a>
-        <a href="looping.html">Looping</a>
-        <a href="about.html">About Us</a>
-      </nav>
+    <div class="border border-dark mx-auto content shadow-lg iformat">
+      <h1 id="topic">Looping</h1><br>
+        <nav class="navbar navbar-expand-lg navbar-light bg-info">
+          <button class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse justify-content-center navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav nav-tabs">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#" id="loginLink" onclick="login()">Login</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="conditionals.html">Conditionals</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link active" href="looping.html">Looping</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="about.html">About us</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
     </div>
-    <div id="content">
+    <div class="border border-dark mx-auto shadow-lg">
       <img src="/images/loading.gif" alt="Loading Circle Animation" class="center" id="loading">
       <p>I'm sure you've seen this symbol on many of your favorite websites and apps.
         It keeps moving the smaller circle in a circular motion until something is loaded or we exit.
@@ -126,5 +146,8 @@ console.writeln("Final Number: " + number);
         <a href="conditionals.html">Conditionals</a>
       </footer>
     </div>
+    <script src="jquery.slim.min.js"></script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
     </body>
 </html>

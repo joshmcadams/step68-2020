@@ -1,6 +1,6 @@
 /* IDs */
 
-#content {
+.border {
   background-color: #f4b400;
   border-radius: 25px;
   border-style: outset;
@@ -12,8 +12,8 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  width: 650px;
-  word-spacing: 3px;
+  width: 840px;
+  word-spacing: normal;
 }
 
 #chart-container {
@@ -121,18 +121,12 @@
   background-color: #f4b400;
   border-radius: 25px;
   border-style: outset;
-  box-shadow: 3px 9px #666;
+  box-shadow: 9px 9px #666;
   display: block;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 30px;
   line-height: 1.6;
   text-align: center;
   width: auto;
-  word-spacing: 3px;
-  margin-left: 360px;
-  margin-right: 365px;
-  padding-left: 500px;
-  padding-right: 500px;
 }
 
 .loopSlides{
