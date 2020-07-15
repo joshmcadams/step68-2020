@@ -69,6 +69,7 @@
         <option value="sv-se">Swedish (Sweden)</option>
       </select>
       <button class="requiresauth" onclick="textToVoice()">Listen</button>
+      <audio style="display: none" controls id="audioPlayer" src=""></audio>
       <br>
       <b><i>(It may take a few seconds for the audio to load.)</i></b></aside>
       <p class="requiresauth">I'm sure you've seen this symbol on many of your favorite websites and apps.
@@ -156,9 +157,6 @@
       <p class="requiresauth">This was just a basic loop, as looping can become very complex and confusing!
         Getting the basics of looping down early will help you when it comes to looping through
         complex problems!
-      <div style="display: none">
-        <audio id="audioPlayer" src="" autoplay="autoplay">
-      </div>
     </div>
     <div class="iformat">
       <!--TODO: Add cards through Bootstrap to footer to allow user to change pages-->
