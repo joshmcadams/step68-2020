@@ -4,9 +4,8 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0">
     <title>Welcome! - ECS</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bootstrap.min.css">
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
     <body onload="displayLoginOption()">
@@ -52,33 +51,36 @@
           and have them do what we want. Don't believe us? Well, maybe we're wrong. Try and pick 
           one of the options you think doesn't use computer science:
         </p>
-        <div id="welcome_question">
-          <select id="technology">
-            <option value="ipad">iPad</option>
-            <option value="iphone">iPhone</option>
-            <option value="laptop">Laptop</option>
-            <option value="xbox">Xbox</option>
-            <option value="playstation">Playstation</option>
-            <option value="fortnite">Fortnite</option>
-            <option value="2k">NBA 2k20</option>
-            <option value="tablet">Tablet</option>
-          </select>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" 
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Choose one.
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" onclick="techAnswer()">Ipad</a>
+            <a class="dropdown-item" onclick="techAnswer()">Iphone</a>
+            <a class="dropdown-item" onclick="techAnswer()">Laptop</a>
+            <a class="dropdown-item" onclick="techAnswer()">Xbox</a>
+            <a class="dropdown-item" onclick="techAnswer()">Playstation</a>
+            <a class="dropdown-item" onclick="techAnswer()">Fortnite</a>
+            <a class="dropdown-item" onclick="techAnswer()">NBA 2k20</a>
+            <a class="dropdown-item" onclick="techAnswer()">Tablet</a>
+          </div>
         </div>
-
-        <p id="wrong">Sorry, but that uses some computer science. Try again.</p>
-
+        <p id="wrong">Sorry, but that uses some computer science.<a id="try again" onclick=hideMessage()>Try again.</p>
         <p id="right">
             This was a trick question! Everything I included as a choice uses 
             computer science! So, do you want to learn how to use it to?    
         </p>
-        
-        <button id=submit onclick="techAnswer()">Submit</button>
-        <br>
         <button id=answer onclick="giveUp()">Give up?</button>
-
-      </div>
-      <script src="jquery.slim.min.js"></script>
-      <script src="popper.min.js"></script>
-      <script src="bootstrap.min.js"></script>
-    </body>
+    <div class="iformat">
+      <!--TODO: Add cards through Bootstrap to footer to allow user to change pages-->
+      <footer>
+        <a href="conditionals.html">Conditionals</a>
+      </footer>
+    </div>
+    <script src="jquery.slim.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+  </body>
 </html>

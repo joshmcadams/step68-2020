@@ -9,15 +9,18 @@
     <!-- Standard CSS Stylesheet-->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bootstrap.min.css">
+    <!-- Bootstrap Scripts -->
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
     <!--Script for Chart API-->
     <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <!--Standard script for multi-purpose use-->
-    <script src="script.js"></script>
     <!--CodeMirror links and scripts-->
     <script src="codemirror/lib/codemirror.js"></script>
     <link rel="stylesheet" href="codemirror/lib/codemirror.css">
     <script src="codemirror/mode/javascript/javascript.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/base16-dark.css">
+    <!--Standard script for multi-purpose use-->
+    <script src="script.js"></script>
   </head>
   <body onload="manageVisibility()">
     <div class="border border-dark mx-auto content shadow-lg iformat">
@@ -50,22 +53,59 @@
         </nav>
     </div>
     <div class="border border-dark mx-auto shadow-lg">
-      <img src="/images/loading.gif" alt="Loading Circle Animation" class="center" id="loading">
-      <p>I'm sure you've seen this symbol on many of your favorite websites and apps.
+      <p id="unauth">Please login to view the contents of the page.</p>
+      <img src="/images/loading.gif" alt="Loading Circle Animation" class="center requiresauth" id="loading">
+      <aside class="requiresauth"><b><i>Want to hear part of the lesson? 
+        <br>
+        Select a language:</i></b>
+      <!-- TODO: Try and link Translation API with selection so it actually speaks in the selected language -->
+      <select class="requiresauth" id="lang" name="language">
+        <option value>------- Select language -------</option>
+        <option value="ca-es">Catalan</option>
+        <option value="zh-cn">Chinese (China)</option>
+        <option value="zh-hk">Chinese (Hong Kong)</option>
+        <option value="zh-tw">Chinese (Taiwan)</option>
+        <option value="da-dk">Danish</option>
+        <option value="nl-nl">Dutch</option>
+        <option value="en-au">English (Australia)</option>
+        <option value="en-ca">English (Canada)</option>
+        <option value="en-gb">English (Great Britain)</option>
+        <option value="en-in">English (India)</option>
+        <option value="en-us">English (United States)</option>
+        <option value="fi-fi">Finnish</option>
+        <option value="fr-ca">French (Canada)</option>
+        <option value="fr-fr">French (France)</option>
+        <option value="de-de">German</option>
+        <option value="it-it">Italian</option>
+        <option value="ja-jp">Japanese</option>
+        <option value="ko-kr">Korean</option>
+        <option value="nb-no">Norwegian</option>
+        <option value="pl-pl">Polish</option>
+        <option value="pt-br">Portuguese (Brazil)</option>
+        <option value="pt-pt">Portuguese (Portugal)</option>
+        <option value="ru-ru">Russian</option>
+        <option value="es-mx">Spanish (Mexico)</option>
+        <option value="es-es">Spanish (Spain)</option>
+        <option value="sv-se">Swedish (Sweden)</option>
+      </select>
+      <button class="requiresauth" onclick="textToVoice()">Listen</button>
+      <br>
+      <b><i>(It may take a few seconds for the audio to load.)</i></b></aside>
+      <p class="requiresauth">I'm sure you've seen this symbol on many of your favorite websites and apps.
         It keeps moving the smaller circle in a circular motion until something is loaded or we exit.
         This is a prime example of looping! Looping allows us to do a certain task over and over and over
         (until we decide to stop it or it reaches a certain condition).
         We can also track what happens between each loop iteration!
-      <hr>
-      <img src="/images/curry.jpg" alt="Picture of Stephen Curry Warming Up" class="center" id="curry">
-      <figcaption><i>Picture taken by HeelSports</i></figcaption>
-      <p>For example, let's track Stephen Curry's three-point attempts.
+      <hr class="requiresauth">
+      <img src="/images/curry.jpg" alt="Picture of Stephen Curry Warming Up" class="center requiresauth" id="curry">
+      <figcaption class="requiresauth"><i>Picture taken by HeelSports</i></figcaption>
+      <p class="requiresauth">For example, let's track Stephen Curry's three-point attempts.
         Everytime Stephen Curry shoots from behind the three-point line and scores,
         he earns three points to his point total.
         Stephen Curry currently has six points. He takes five three-point shots and makes four of them.
         How many total points does Stephen Curry currently have?
       </p>
-      <div id="dropdown">
+      <div class="requiresauth" id="dropdown">
         <label for="ten">Choose the point total:</label>
         <select id="selectpoints" name="points">
           <option value="twelve">Twelve</option>
@@ -79,11 +119,9 @@
       <p id="right"><b>Eighteen is correct! Stephen Curry started with six points and made five three-pointers.
         By looping through each shot attempt he made, the point total ends up being eighteen points!</b></p>
       <p id="wrong"><b>Your answer is incorrect. Try again.</b></p>
-      <div id="chart-container"></div>
-      <hr>
-      <img src="/images/pizzaguy.jpg" alt="Cool Slice of Pizza with Shades" id="leftimage">
-      <img src="/images/donuts.png" alt="Six Donuts" id="rightimage">
-      <p>In Computer Science, the two most common types of looping statements are <b>while
+      <div class="requiresauth" id="chart-container"></div>
+      <hr class="requiresauth">
+      <p class="requiresauth">In Computer Science, the two most common types of looping statements are <b>while
         loops</b> and <b>for loops</b>.
         <br>
         <b>While loops</b> keep running a certain action <i>while</i> a certain condition
@@ -94,29 +132,28 @@
         <br>
         Both of these looping statements are great to use, so it depends on
         your preference as to which one you want to use.
-      <hr>
-      <p>Check out this looping statement below written in JavaScript!
-      <br>
-      <button onClick="compile()">Run Code</button>
+      <hr class="requiresauth">
+      <p class="requiresauth">Check out this looping statement below written in JavaScript!</p>
+      <button class="requiresauth" id="code-button" onClick="compile()">Run Code</button>
       <textarea id="js">
-var number = 0;
-for(i=0; i<3; i++){
-  number++;
-  console.writeln("Current Number: " + number);
-}
-console.writeln("Final Number: " + number);
+  var number = 0;
+  for(i=0; i&#60;3; i++){
+    number++;
+    console.writeln("Current Number: " + number);
+  }
+  console.writeln("Final Number: " + number);
       </textarea>
       <iframe src="loopingexample.html" title="Looping Example" id="code"></iframe>
-      <hr>
-      <h2>Step-by-Step Guide into Looping</h2>
+      <hr class="requiresauth">
+      <h2 class="requiresauth">Step-by-Step Guide into Looping</h2>
       <!--Images for the Slideshow-->
-      <img class="loopSlides" src="/images/looplineone.png" alt="For Loop Example Line One">
+      <img class="loopSlides" id="firstSlide" src="/images/looplineone.png" alt="For Loop Example Line One">
       <img class="loopSlides" src="/images/looplinetwo.png" alt="For Loop Example Line Two">
       <img class="loopSlides" src="/images/looplinethree.png" alt="For Loop Example Line Three">
       <img class="loopSlides" src="/images/looplinefour.png" alt="For Loop Example Line Four">
       <img class="loopSlides" src="/images/looplinefive.png" alt="For Loop Example Line Five">
       <img class="loopSlides" src="/images/looplinesix.png" alt="For Loop Example Line Six">
-      <p class="explanation">The <b>number</b> variable is created to store the value of an integer.</p>
+      <p class="explanation" id="firstExp">The <b>number</b> variable is created to store the value of an integer.</p>
       <p class="explanation">This function uses a <b>for loop</b>. A for loop has three required items
         within its parenthesis: a counter variable, a conditional statement, and an incrementer/decrementer.
         The <b>i=0;</b> creates the counter variable for the loop. The <b>i&#60;3;</b> is the conditional
@@ -127,23 +164,27 @@ console.writeln("Final Number: " + number);
       <p class="explanation">The <b>console.writeln("Current Number: " + number);</b> line is a print statement.
         What this means is that the page will display whatever is inside of the parenthesis. 
         Since number is an integer variable, the page will print the value of the variable at its certain point.
-        So in this case, the page will print, <b>Current Number: <b>the value of number</b></b>.</p>
+        So in this case, the page will print, <b>Current Number: the value of number</b>.</p>
       <p class="explanation">The curly bracket encloses the for loop.</p>
       <p class="explanation">Once the for loop has ran three times, it exits the loop 
         then displays the final number with the 
         <b>"console.writeln("Final Number: " + number);"</b> statement.
       </p>
-      <button onClick="moveSlide(-1)">&#10094; Previous</button>
-      <button onClick="moveSlide(1)">Next &#10095;</button>
-      <hr>
-      <p>This was just a basic loop, as looping can become very complex and confusing!
+      <button class="slidebutton" onClick="moveSlide(-1)">&#10094; Previous</button></li>
+      <button class="slidebutton" onClick="moveSlide(1)">Next &#10095;</button></li>
+      <hr class="requiresauth">
+      <p class="requiresauth">This was just a basic loop, as looping can become very complex and confusing!
         Getting the basics of looping down early will help you when it comes to looping through
         complex problems!
+      <div style="display: none">
+        <audio id="audioPlayer" src="" autoplay="autoplay">
+      </div>
     </div>
     <div class="iformat">
       <!--TODO: Add cards through Bootstrap to footer to allow user to change pages-->
       <footer>
-        <a href="conditionals.html">Conditionals</a>
+        <i>Text-to-Speech API provided by <a href="http://www.voicerss.org/default.aspx">Voice RSS</a></i>
+        <a href="conditionals.html">Previous</a>
       </footer>
     </div>
     <script src="jquery.slim.min.js"></script>

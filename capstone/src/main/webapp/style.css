@@ -18,6 +18,7 @@
 
 #chart-container {
   border: 15px;
+  border-color: #666;
   border-style: groove;
   display: none;
   margin: 10px;
@@ -28,6 +29,11 @@
 #code {
   display: none;
   visibility: hidden;
+}
+
+#code-button {
+  margin-bottom: 20px;
+  margin-top: -20px;
 }
 
 #curry {
@@ -68,10 +74,11 @@
 #leftimage {
   border: 0;
   height: 60%;
-  left: 100px;
-  position: absolute;
-  top: 2150px;
-  width: 23%;
+  left: 150px;
+  position: fixed;
+  right: auto;
+  top: 210px;
+  width: 20%;
 }
 
 #right {
@@ -85,10 +92,10 @@
 #rightimage {
   border: 0;
   height: 60%;
-  position: absolute;
-  right: 100px;
-  top: 2150px;
-  width: 24%;
+  position: fixed;
+  right: 150px;
+  top: 210px;
+  width: 20%;
 }
 
 #topic {
@@ -127,6 +134,11 @@
   line-height: 1.6;
   text-align: center;
   width: auto;
+  word-spacing: 3px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: auto;
+  padding-right: auto;
 }
 
 .loopSlides{
@@ -139,6 +151,8 @@
 
 .requiresauth {
   display: none;
+  margin-left: auto;
+  margin-right: auto;
   visibility: hidden;
 }
 
@@ -149,6 +163,8 @@ body {
   animation-duration: 15s;
   animation-iteration-count: infinite;
   background-color: #4285f4;
+  background-image: url("/images/donutstwo.png");
+  background-position: -2% 0%;
 }
 
 button {
