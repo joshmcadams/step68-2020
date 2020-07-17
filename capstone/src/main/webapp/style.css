@@ -5,32 +5,17 @@
   margin-right: auto;
 }
 
-.border {
-  background-color: #f4b400;
-  border-radius: 25px;
-  border-style: outset;
-  box-shadow: 9px 9px #666;
-  display: block;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 17px;
-  line-height: 1.6;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  width: 840px;
-  word-spacing: normal;
-}
-
 #chart-container {
   border: 15px;
   border-color: #666;
   border-style: groove;
   display: none;
-  margin: 10px;
+  margin-top: 10px;
+  margin-left: 110px;
+  margin-right: 100px;
   padding: 30px;
   visibility: hidden;
 }
-
 #code {
   display: none;
   visibility: hidden;
@@ -66,7 +51,10 @@
 }
 
 #icecreamtruck{
-    width: 75%;
+  border: 15px;
+  border-color: #666;
+  border-style: groove;
+  width: 75%;
 }
 
 #loading {
@@ -121,6 +109,22 @@
 }
 
 /* Classes */
+
+.border {
+  background-color: #f4b400;
+  border-radius: 25px;
+  border-style: outset;
+  box-shadow: 9px 9px #666;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 840px;
+  word-spacing: normal;
+}
 
 .center {
   display: block;
@@ -192,9 +196,10 @@ iframe {
   border-color: #666;
   border-style: groove;
   bottom: 0;
+  margin: auto;
   height: 125px;
   position: relative;
-  width: 95.4%;
+  width: 95.5%;
 }
 
 img {

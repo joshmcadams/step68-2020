@@ -4,13 +4,16 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0">
     <title>Welcome! - ECS</title>
-    <link rel="stylesheet" href="bootstrap.min.css">
+    <!-- Standard CSS Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <!-- Standard script for multi-purpose use -->
     <script src="script.js"></script>
   </head>
     <body onload="displayLoginOption()">
       <div class="border border-dark mx-auto content shadow-lg iformat">
-        <h1 class="text-center">Welcome to ECS</h1><br>
+        <h1 class="text-center" id="topic">Welcome to ECS</h1><br>
           <nav class="navbar navbar-expand-lg navbar-light bg-info" style="border-radius:25px;">
             <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -20,10 +23,13 @@
             <div class="collapse justify-content-center navbar-collapse" id="navbarSupportedContent">
               <ul class="nav nav-tabs">
                 <li class="nav-item active">
-                  <a class="nav-link active" href="index.html">Home<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="#" id="loginLink" onclick="login()">Login</a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="#" id="loginLink" onclick="login()">Login</a>
+                  <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link active" href="index.html">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                   <a class="nav-link" href="conditionals.html">Conditionals</a>
@@ -31,20 +37,16 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="looping.html">Looping</a>
                 </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="about.html">About us</a>
-                </li>
               </ul>
             </div>
           </nav>
-        </div>
-        <div class="border border-dark mx-auto shadow-lg">
+      </div>
+      <div class="border border-dark mx-auto shadow-lg">
         <h2 class="text-center">Are you ready to code?</h2>
         <p>Welcome to our site! We are excited to teach you just how cool computer science
           can be. Even if you don't know what computer science is, you can learn the basics
           here and make cool programs!
         </p>
-
         <h2>Why should I learn?</h2>
         <p>Computer Science is the language of the future!<br><br>
           Every piece of technology you have uses computer science. It is how we talk to machines
@@ -67,20 +69,21 @@
             <a class="dropdown-item" onclick="techAnswer()">Tablet</a>
           </div>
         </div>
-        <p id="wrong">Sorry, but that uses some computer science.<a id="try again" onclick=hideMessage()>Try again.</p>
-        <p id="right">
-            This was a trick question! Everything I included as a choice uses 
-            computer science! So, do you want to learn how to use it to?    
-        </p>
-        <button id=answer onclick="giveUp()">Give up?</button>
-    <div class="iformat">
-      <!--TODO: Add cards through Bootstrap to footer to allow user to change pages-->
-      <footer>
-        <a href="conditionals.html">Conditionals</a>
-      </footer>
-    </div>
-    <script src="jquery.slim.min.js"></script>
-    <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
-    <script src="bootstrap.min.js"></script>
+      <p id="wrong">Sorry, but that uses some computer science. Try again.</p>
+      <p id="right">
+        This was a trick question! Everything included as a choice uses 
+        computer science! So, do you want to learn how to use it?    
+      </p>
+      <button id=answer onclick="giveUp()">Give Up?</button>
+      <div class="iformat">
+        <!-- TODO: Praful, fix footer to stretch across page -->
+        <footer>
+          <a href="conditionals.html">Conditionals</a>
+        </footer>
+      </div>
+      <!-- Required Bootstrap Scripts -->
+      <script src="jquery.slim.min.js"></script>
+      <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
+      <script src="bootstrap.min.js"></script>
   </body>
 </html>
