@@ -39,7 +39,7 @@ public class AuthStatus extends HttpServlet {
     }
   }
 
-@Override
+  @Override
   public void doHead(HttpServletRequest request, HttpServletResponse response) throws IOException {
     UserService userService = UserServiceFactory.getUserService();
     if (!userService.isUserLoggedIn()) {

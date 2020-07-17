@@ -1,5 +1,10 @@
 /* IDs */
 
+#audioPlayer {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .border {
   background-color: #f4b400;
   border-radius: 25px;
