@@ -5,25 +5,45 @@
     <meta content="width=device-width, initial-scale=1.0">
     <title>Conditionals - ECS</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="script.js"></script>
   </head>
   <body onload="manageVisibility()">
-    <div class="iformat">
-      <h1 id="topic">Conditionals</h1>
-      <nav>
-        <a id="loginLink" href="#" onclick="login()"></a>
-        <a href="about.html">About Us</a>
-        <a href="index.html">Home</a>
-        <a href="conditionals.html">Conditionals</a>
-        <a href="looping.html">Looping</a>
+    <div class="border border-dark mx-auto content shadow-lg iformat"> 
+    <h1 class="text-center">Conditionals</h1><br>
+      <nav class="navbar navbar-expand-lg navbar-light bg-info" style="border-radius:25px;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse justify-content-center navbar-collapse" id="navbarSupportedContent">
+          <ul class="nav nav-tabs">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#" id="loginLink" onclick="login()">Login</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link active" href="conditionals.html">Conditionals</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="looping.html">Looping</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="about.html">About us</a>
+            </li>
+          </ul>
+        </div>
       </nav>
-    </div>
-    <div id="content">
-      <p id="unauth">Please login to view the contents of the page.
-      <p class="requiresauth">Ever wondered what conditionals are? Let's dive in to understand 
+      </div>
+      <div class="border border-dark mx-auto shadow-lg">
+        <p id="unauth">Please login to view the contents of the page.
+        <p class="text-center requiresauth">Ever wondered what conditionals are? Let's dive in to understand 
         a fancy term given for what you already know.
-      <p class="requiresauth">Conditionals statements are features in computer science that
+        <p class="text-center requiresauth">Conditionals statements are features in computer science that
          your program decides to select.
          It's the same as selection conditions that you've been using in
          daily life.
@@ -31,7 +51,7 @@
         <img src="/images/icecreamtruck.gif" alt="Ice-cream truck" class="center" id="icecreamtruck">
         <figcaption>Gif credit: https://giphy.com/gifs/NzImjTSUF53va/html5</figcaption>
       </figure>
-      <p class="requiresauth">For instance, there is an ice-cream truck in a park.
+      <p class="text-center requiresauth">For instance, there is an ice-cream truck in a park.
          What's the first question that comes to your mind? 
          Do I want an ice-cream? If you feel like having one, you will ask
          your parents to buy you one or you will decide may be next
@@ -40,11 +60,10 @@
          you will have to use selection conditions again.
          What flavor do you want? If vanilla you have to pay $1.99, else if strawberry pay $0.99,
          else if vanilla with chocolate chip then pay $3.99, and so on.
-     
-      <p class="requiresauth">Now, for computers to use similar workflow, programming languages--languages that are used
+      <p class="text-center requiresauth">Now, for computers to use similar workflow, programming languages--languages that are used
          to communicate with computer--use different types of conditional statements. For example,
          if, if else, switch, else if, et cetera. For now, let's play a quick game.
-      <p class="requiresauth">Suppose, There is a runaway trolley barreling down the railway tracks. 
+      <p class="text-center requiresauth">Suppose, There is a runaway trolley barreling down the railway tracks. 
          Ahead, on the tracks, there are five people tied up and unable to move. 
          The trolley is headed straight for them. You are standing some distance off in the train yard,
          next to a lever. What are the different selection situations that you can think of?

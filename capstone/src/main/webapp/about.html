@@ -5,21 +5,42 @@
     <meta content="width=device-width, initial-scale=1.0">
     <title>Welcome! - ECS</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="script.js"></script>
   </head>
-  <body onload="displayLoginOption()">
-    <div class="iformat">
-      <h1 id="topic">Welcome to ECS</h1>
-      <nav>
-        <a id="loginLink" href="#" onclick="login()"></a>
-        <a href="about.html">About Us</a>
-        <a href="index.html">Home</a>
-        <a href="conditionals.html">Conditionals</a>
-        <a href="looping.html">Looping</a>
-      </nav>
-    </div>
-    <div id="content">
-      <h2>Our goals:</h2>
+    <body onload="manageVisibility()">
+      <div id="border border-dark mx-auto content shadow-lg iformat">
+        <h1 class="text-center">Welcome to ECS</h1><br>
+          <nav class="navbar navbar-expand-lg navbar-light bg-info">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse justify-content-center navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav nav-tabs">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="#" id="loginLink" onclick="login()">Login</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="conditionals.html">Conditionals</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="looping.html">Looping</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link active" href="about.html">About us</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="border border-dark mx-auto shadow-lg">
+        <h2>Our goals:</h2>
         <p>
           Hello, and thank you for visiting ECS! ECS, or Elementary Computer Science, is a
           website we created with two very important goals in mind.
@@ -89,7 +110,14 @@
         <hr>
         <h4>Praful Sigdel</h4>
         <p>
-          Hello, I am Praful Sigdel. I am a rising junior pursuing Physics and Mechanical Engineering at Fisk University. 
+          Hello, I am Praful Sigdel. I am a rising junior pursuing Physics and 
+          Computer Science at Fisk University. I love writing codes, building robots, and teaching Math, Physics, and CS.
+          Besides school work and personal project, I can be found playing piano or guitar in solitude. I
+          love reading books. Philosophy, psychology, and non-fiction interests me to a great extent.
+          I have told you about my academics and interests associated with it in the above lines. On the morality side of
+          my personality traits, I am not trying to create a frankenstein's monster in my life. 
+          Motivation to start: I didn't see a computer until I was in my 6th grade and didn't write code until I graduated
+          high school. Happy reading and coding!
         </p>
         <hr>
         <h4>Jamie Tucker</h4>
