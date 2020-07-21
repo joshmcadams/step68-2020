@@ -106,16 +106,17 @@ function displayLoginOption() {
  * Give up response to dropdown question on welcome page.
  */
 function giveUp(){
-  const incorrect = document.querySelector('#wrong');
   const response = document.querySelector('#right');
-  const choices = document.querySelector('#welcome_question');
-  const submit = document.querySelector('#submit');
-  const answer = document.querySelector('#answer');
-  invisibleText(incorrect);
-  invisibleText(choices);
-  invisibleText(submit);
-  invisibleText(answer);
+  if((document.querySelector("#wrong").style.visibility)!="hidden"){
+    document.querySelector('#wrong').style.visibility = 'hidden';
+  }
   visibleText(response);
+  invisibleText(document.querySelector('#dropdownMenuButton'));
+  invisibleText(document.querySelector('#answer'));
+}
+
+function hideMessage(){
+    document.querySelector('#wrong').style.visibility = 'hidden';
 }
 
 /**
