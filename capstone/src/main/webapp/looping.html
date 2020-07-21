@@ -4,35 +4,54 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0">
     <title>Looping - ECS</title>
-    <!--jQuery Script-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Standard CSS Stylesheet-->
+    <!-- Standard CSS Stylesheet -->
     <link rel="stylesheet" href="style.css">
-    <!-- Bootstrap Scripts -->
-    <script src="popper.min.js"></script>
-    <script src="bootstrap.min.js"></script>
-    <!--Script for Chart API-->
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <!--CodeMirror links and scripts-->
-    <script src="codemirror/lib/codemirror.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <!-- CodeMirror Links -->
     <link rel="stylesheet" href="codemirror/lib/codemirror.css">
-    <script src="codemirror/mode/javascript/javascript.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/base16-dark.css">
-    <!--Standard script for multi-purpose use-->
+    <!-- CodeMirror scripts -->
+    <script src="codemirror/lib/codemirror.js"></script>
+    <script src="codemirror/mode/javascript/javascript.js"></script>
+    <!-- Script for Chart API -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- jQuery Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Standard script for multi-purpose use -->
     <script src="script.js"></script>
   </head>
   <body onload="manageVisibility()">
-    <div class="iformat">
-      <h1 id="topic">Looping</h1>
-      <nav>
-        <a id="loginLink" href="#" onclick="login()"></a>
-        <a href="about.html">About Us</a>
-        <a href="index.html">Home</a>
-        <a href="conditionals.html">Conditionals</a>
-        <a href="looping.html">Looping</a>
-      </nav>
-    </div>
-    <div id="content">
+    <div class="border border-dark mx-auto content shadow-lg iformat">
+        <h1 class="text-center" id="topic">Looping</h1><br>
+          <nav class="navbar navbar-expand-lg navbar-light bg-info" style="border-radius:25px;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse justify-content-center navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav nav-tabs">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#" id="loginLink" onclick="login()">Login</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="conditionals.html">Conditionals</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link active" href="looping.html">Looping<span class="sr-only">(current)</span></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+      </div>
+    <div class="border border-dark mx-auto shadow-lg">
       <p id="unauth">Please login to view the contents of the page.</p>
       <img src="/images/loading.gif" alt="Loading Circle Animation" class="center requiresauth" id="loading">
       <aside class="requiresauth"><b><i>Want to hear part of the lesson? 
@@ -69,6 +88,7 @@
         <option value="sv-se">Swedish (Sweden)</option>
       </select>
       <button class="requiresauth" onclick="textToVoice()">Listen</button>
+      <audio style="display: none" controls id="audioPlayer" src=""></audio>
       <br>
       <b><i>(It may take a few seconds for the audio to load.)</i></b></aside>
       <p class="requiresauth">I'm sure you've seen this symbol on many of your favorite websites and apps.
@@ -156,9 +176,6 @@
       <p class="requiresauth">This was just a basic loop, as looping can become very complex and confusing!
         Getting the basics of looping down early will help you when it comes to looping through
         complex problems!
-      <div style="display: none">
-        <audio id="audioPlayer" src="" autoplay="autoplay">
-      </div>
     </div>
     <div class="iformat">
       <!--TODO: Add cards through Bootstrap to footer to allow user to change pages-->
@@ -167,5 +184,8 @@
         <a href="conditionals.html">Previous</a>
       </footer>
     </div>
-  </body>
+    <!-- Required Bootstrap Scripts -->
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    </body>
 </html>

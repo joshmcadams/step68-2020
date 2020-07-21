@@ -334,27 +334,6 @@ async function textToVoice(){
     " while internally keeping count of how many times it has ran with an iterator (or counter) variable." + 
     " Both of these looping statements are great to use, so it depends on" + 
     " your preference as to which one you want to use." + 
-    /*" Check out this looping statement below written in JavaScript!" + 
-    " Var number equals zero. For i equals 0, i is less than three, i plus plus." + 
-    " Number plus plus. Console dot write line, current number: number." + 
-    " Console dot write line, final number: number." + 
-    " Step-by-Step Guide into Looping" + 
-    " Line One: The number variable is created to store the value of an integer." + 
-    " Line Two: This function uses a for loop. A for loop has three required items" + 
-    " within its parenthesis: a counter variable, a conditional statement, and an incrementer/decrementer." + 
-    " The i equals zero creates the counter variable for the loop. The i less than three is the conditional" + 
-    " statement. If i is less than three, than it will run the for loop, or else it moves to line six." + 
-    " The i plus plus is the incrementer for the loop. Once the for loop runs through each line within itself," + 
-    " it keeps incrementing the i counter and runs lines three and four until the conditional statement is false." + 
-    " Line Three: The number plus plus line adds one to the total of the variable number." + 
-    " Line Four: The console dot write line current number: number line is a print statement." + 
-    " What this means is that the page will display whatever is inside of the parenthesis." +  
-    " Since number is an integer variable, the page will print the value of the variable at its certain point." + 
-    " So in this case, the page will print, current number: the value of number." + 
-    " Line Five: The curly bracket encloses the for loop." + 
-    " Line Six: Once the for loop has ran three times, it exits the loop" + 
-    " then displays the final number with the console dot write line," + 
-    " final number, number statement." + */
     " This was just a basic loop, as looping can become very complex and confusing!" + 
     " Getting the basics of looping down early will help you when it comes to looping through" + 
     " complex problems!";
@@ -379,6 +358,7 @@ async function textToVoice(){
   // Putting the link together
   const loopingAudio = voiceLink + "?key=" + apiKey + "&r=0.5&hl=" + language + "&src=" + loopingText;
   document.querySelector("#audioPlayer").src = loopingAudio;
+  visibleText(document.querySelector("#audioPlayer"));
 }
 
 /**

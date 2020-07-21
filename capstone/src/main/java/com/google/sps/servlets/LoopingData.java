@@ -54,6 +54,9 @@ public class LoopingData extends HttpServlet {
       currUserId = userService.getCurrentUser().getUserId();
     }
     
+    // Reset the global boolean variable in case the admin data is deleted
+    hasSubmitted = false;
+    
     // Prepare the Query to store the entities you want to load
     Query query = new Query("LoopingData").addSort("Timestamp", SortDirection.DESCENDING);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -115,9 +118,6 @@ public class LoopingData extends HttpServlet {
       currentAnswers++;
     }
     long timestamp = System.currentTimeMillis();
-    
-    // Add the entry into the private HashMap
-    submissions.put(points, currentAnswers);
 
     // Create an entity and set its properties
     Entity dataEntity = new Entity("LoopingData");
@@ -129,6 +129,9 @@ public class LoopingData extends HttpServlet {
     // Store the entities if it's the user's first submission
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     if (hasSubmitted == false) {
+      // Add the entry into the private HashMap
+      submissions.put(points, currentAnswers);
+
       datastore.put(dataEntity);
       hasSubmitted = true;
     }
