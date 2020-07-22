@@ -278,7 +278,6 @@ async function submitAnswer() {
   $.ajax({
     type: 'POST', url: '/looping', 
     data: {
-      // TODO: Add User ID so they can only submit once.
       'points': document.querySelector('#selectpoints').value,
     },
   }).done(function(response) {
