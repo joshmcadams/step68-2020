@@ -329,10 +329,7 @@ async function textToVoice(){
     " For loops keep running a certain action for a certain duration," + 
     " while internally keeping count of how many times it has ran with an iterator (or counter) variable." + 
     " Both of these looping statements are great to use, so it depends on" + 
-    " your preference as to which one you want to use." + 
-    " This was just a basic loop, as looping can become very complex and confusing!" + 
-    " Getting the basics of looping down early will help you when it comes to looping through" + 
-    " complex problems!";
+    " your preference as to which one you want to use.";
 
   // Required for the API to work
   const apiKey = "4049baf24b6f40e6bc894a213b0e700a";
