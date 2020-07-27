@@ -33,23 +33,6 @@
   width: 90%;
 }
 
-#divider {
-  background-color: #ce0f3d;
-  color: #ce0f3d;
-  height: 15px;
-  list-style-type: none;
-  width: auto;
-}
-
-#figcaption {
-  background-color: black;
-  color: white;
-  font-size: 0.1px;
-  font-style: italic;
-  padding: 2px;
-  text-align: center;
-}
-
 #icecreamtruck{
   border: 15px;
   border-color: #666;
@@ -64,31 +47,12 @@
   width: 50%;
 }
 
-#leftimage {
-  border: 0;
-  height: 60%;
-  left: 150px;
-  position: fixed;
-  right: auto;
-  top: 210px;
-  width: 20%;
-}
-
 #right {
   border: 15px;
   border-color: #0f9d58;
   border-style: groove;
   display: none;
   visibility: hidden;
-}
-
-#rightimage {
-  border: 0;
-  height: 60%;
-  position: fixed;
-  right: 150px;
-  top: 210px;
-  width: 20%;
 }
 
 #topic {
