@@ -340,7 +340,8 @@ async function textToVoice(){
 
   // Parameter variables from the API
   var language = document.querySelector("#lang").value;
-  loopingText = translatetext2(loopingText, language);
+  var translate_code = language.substring(0,2);
+  loopingText = translatetext(loopingText, translate_code);
   var fileType = "";
 
   // In case an mp3 file cannot be played on the user's browser
@@ -361,46 +362,18 @@ async function textToVoice(){
 /** 
  * Translates a given text
  */
-function translatetext(){
-  // Fetches the current text and desired language code
-  const text = document.querySelector('#text').value;
-  const language = document.querySelector('#language').value;
-
-  // Fetches textbox
-  const resultContainer = document.getElementById('result');
-  resultContainer.innerText = 'Loading...';
-
-  // Creates constant to give to POST method
-  const params = new URLSearchParams();
-  params.append('text', text);
-  params.append('language', language);
-
-  // Creates POST method
-  fetch('/translate', {
-    method: 'POST',
-    body: params
-    }).then(response => response.text())
-    .then((translatedMessage) => {
-    resultContainer.innerText = translatedMessage;
-    });
-}
-
-/** 
- * Translates a given text
- */
-function translatetext2(text, language){
-  // Creates constant to give to POST method
-  const params = new URLSearchParams();
-  params.append('text', text);
-  params.append('language', language);
-
+function translatetext(text, language){
   // Creates POST method and stores in response
-  const new_text = 
-  fetch('/translate', {
-    method: 'POST',
-    body: params
-  }).then(response => response.text());
-
+  const new_text = $.ajax({
+    url: "/translate",
+    type: 'POST',
+    data: {
+        text:text,
+        language:language
+        },
+    async: false
+  }).responseText;
+ 
   // Return translated text
   return new_text;
 }
