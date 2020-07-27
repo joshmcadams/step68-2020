@@ -388,7 +388,7 @@ function translatetext(){
 /** 
  * Translates a given text
  */
-function translatetext2(text, language){
+async function translatetext2(text, language){
   // Creates constant to give to POST method
   const params = new URLSearchParams();
   params.append('text', text);
@@ -396,13 +396,15 @@ function translatetext2(text, language){
 
   // Creates POST method and stores in response
   const new_text = 
-  fetch('/translate', {
+  await fetch('/translate', {
     method: 'POST',
     body: params
-  }).then(response => response.text());
+  })
+  
+  const translated = await new_text.text();
 
   // Return translated text
-  return new_text;
+  return translated;
 }
 
 /**
