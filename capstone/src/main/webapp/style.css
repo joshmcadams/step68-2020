@@ -193,6 +193,10 @@ a:active {
   background-color: #fbff00;
 }
 
+a:link {
+  color: #000;
+}
+
 a:visited {
   color: #000;
 }
