@@ -329,20 +329,18 @@ async function textToVoice(){
     " For loops keep running a certain action for a certain duration," + 
     " while internally keeping count of how many times it has ran with an iterator (or counter) variable." + 
     " Both of these looping statements are great to use, so it depends on" + 
-    " your preference as to which one you want to use." + 
-    " This was just a basic loop, as looping can become very complex and confusing!" + 
-    " Getting the basics of looping down early will help you when it comes to looping through" + 
-    " complex problems!";
-
+    " your preference as to which one you want to use.";
+ 
   // Required for the API to work
   const apiKey = "4049baf24b6f40e6bc894a213b0e700a";
   const voiceLink = "http://api.voicerss.org/";
-
+ 
   // Parameter variables from the API
   var language = document.querySelector("#lang").value;
-  loopingText = translatetext2(loopingText, language);
+  var translate_code = language.substring(0,2);
+  loopingText = translatetext(loopingText, translate_code);
   var fileType = "";
-
+ 
   // In case an mp3 file cannot be played on the user's browser
   if (document.querySelector("#audioPlayer") != null) {
     if (document.querySelector("#audioPlayer").canPlayType("audio/mpeg") != "")
@@ -351,56 +349,28 @@ async function textToVoice(){
       fileType = "wav";
     }
   }
-
+ 
   // Putting the link together
   const loopingAudio = voiceLink + "?key=" + apiKey + "&r=0.5&hl=" + language + "&src=" + loopingText;
   document.querySelector("#audioPlayer").src = loopingAudio;
   visibleText(document.querySelector("#audioPlayer"));
 }
-
+ 
 /** 
  * Translates a given text
  */
-function translatetext(){
-  // Fetches the current text and desired language code
-  const text = document.querySelector('#text').value;
-  const language = document.querySelector('#language').value;
-
-  // Fetches textbox
-  const resultContainer = document.getElementById('result');
-  resultContainer.innerText = 'Loading...';
-
-  // Creates constant to give to POST method
-  const params = new URLSearchParams();
-  params.append('text', text);
-  params.append('language', language);
-
-  // Creates POST method
-  fetch('/translate', {
-    method: 'POST',
-    body: params
-    }).then(response => response.text())
-    .then((translatedMessage) => {
-    resultContainer.innerText = translatedMessage;
-    });
-}
-
-/** 
- * Translates a given text
- */
-function translatetext2(text, language){
-  // Creates constant to give to POST method
-  const params = new URLSearchParams();
-  params.append('text', text);
-  params.append('language', language);
-
+function translatetext(text, language){
   // Creates POST method and stores in response
-  const new_text = 
-  fetch('/translate', {
-    method: 'POST',
-    body: params
-  }).then(response => response.text());
-
+  const new_text = $.ajax({
+    url: "/translate",
+    type: 'POST',
+    data: {
+        text:text,
+        language:language
+        },
+    async: false
+  }).responseText;
+ 
   // Return translated text
   return new_text;
 }
