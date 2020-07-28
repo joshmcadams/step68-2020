@@ -358,55 +358,6 @@ async function textToVoice(){
   visibleText(document.querySelector("#audioPlayer"));
 }
 
-/** 
- * Translates a given text
- */
-function translatetext(){
-  // Fetches the current text and desired language code
-  const text = document.querySelector('#text').value;
-  const language = document.querySelector('#language').value;
-
-  // Fetches textbox
-  const resultContainer = document.getElementById('result');
-  resultContainer.innerText = 'Loading...';
-
-  // Creates constant to give to POST method
-  const params = new URLSearchParams();
-  params.append('text', text);
-  params.append('language', language);
-
-  // Creates POST method
-  fetch('/translate', {
-    method: 'POST',
-    body: params
-    }).then(response => response.text())
-    .then((translatedMessage) => {
-    resultContainer.innerText = translatedMessage;
-    });
-}
-
-/** 
- * Translates a given text
- */
-async function translatetext2(text, language){
-  // Creates constant to give to POST method
-  const params = new URLSearchParams();
-  params.append('text', text);
-  params.append('language', language);
-
-  // Creates POST method and stores in response
-  const new_text = 
-  await fetch('/translate', {
-    method: 'POST',
-    body: params
-  })
-  
-  const translated = await new_text.text();
-
-  // Return translated text
-  return translated;
-}
-
 /**
  * Makes item visible.
  */
