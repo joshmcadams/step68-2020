@@ -334,13 +334,13 @@ async function textToVoice(){
   // Required for the API to work
   const apiKey = "4049baf24b6f40e6bc894a213b0e700a";
   const voiceLink = "http://api.voicerss.org/";
-
+ 
   // Parameter variables from the API
   var language = document.querySelector("#lang").value;
   var translate_code = language.substring(0,2);
   loopingText = translatetext(loopingText, translate_code);
   var fileType = "";
-
+ 
   // In case an mp3 file cannot be played on the user's browser
   if (document.querySelector("#audioPlayer") != null) {
     if (document.querySelector("#audioPlayer").canPlayType("audio/mpeg") != "")
@@ -349,7 +349,7 @@ async function textToVoice(){
       fileType = "wav";
     }
   }
-
+ 
   // Putting the link together
   const loopingAudio = voiceLink + "?key=" + apiKey + "&r=0.5&hl=" + language + "&src=" + loopingText;
   document.querySelector("#audioPlayer").src = loopingAudio;
