@@ -305,7 +305,6 @@ async function submitAnswer() {
   $.ajax({
     type: 'POST', url: '/looping', 
     data: {
-      // TODO: Add User ID so they can only submit once.
       'points': document.querySelector('#selectpoints').value,
     },
   }).done(function(response) {
@@ -389,19 +388,18 @@ async function textToVoice(){
     " For loops keep running a certain action for a certain duration," + 
     " while internally keeping count of how many times it has ran with an iterator (or counter) variable." + 
     " Both of these looping statements are great to use, so it depends on" + 
-    " your preference as to which one you want to use." + 
-    " This was just a basic loop, as looping can become very complex and confusing!" + 
-    " Getting the basics of looping down early will help you when it comes to looping through" + 
-    " complex problems!";
+    " your preference as to which one you want to use.";
 
   // Required for the API to work
   const apiKey = "4049baf24b6f40e6bc894a213b0e700a";
   const voiceLink = "http://api.voicerss.org/";
-
+ 
   // Parameter variables from the API
   var language = document.querySelector("#lang").value;
+  var translate_code = language.substring(0,2);
+  loopingText = translatetext(loopingText, translate_code);
   var fileType = "";
-
+ 
   // In case an mp3 file cannot be played on the user's browser
   if (document.querySelector("#audioPlayer") != null) {
     if (document.querySelector("#audioPlayer").canPlayType("audio/mpeg") != "")
@@ -410,11 +408,30 @@ async function textToVoice(){
       fileType = "wav";
     }
   }
-
+ 
   // Putting the link together
   const loopingAudio = voiceLink + "?key=" + apiKey + "&r=0.5&hl=" + language + "&src=" + loopingText;
   document.querySelector("#audioPlayer").src = loopingAudio;
   visibleText(document.querySelector("#audioPlayer"));
+}
+
+/** 
+ * Translates a given text
+ */
+function translatetext(text, language){
+  // Creates POST method and stores in response
+  const new_text = $.ajax({
+    url: "/translate",
+    type: 'POST',
+    data: {
+        text:text,
+        language:language
+        },
+    async: false
+  }).responseText;
+ 
+  // Return translated text
+  return new_text;
 }
 
 /**
