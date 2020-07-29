@@ -74,12 +74,22 @@
         This was a trick question! Everything included as a choice uses 
         computer science! So, do you want to learn how to use it?    
       </p>
-      <button id=answer onclick="giveUp()">Give Up?</button>
-      <div class="iformat">
-        <!-- TODO: Praful, fix footer to stretch across page -->
-        <footer>
+      <button class="btn btn-secondary" id=answer onclick="giveUp()">Give up?</button>
+      <hr>
+      <div class="form-group container">
+        <label for="formControlTextLabel">Leave a feedback after going through the website for us to grow.</label>
+        <textarea class="form-control" id="comment-input" name="comment-input" rows="10"></textarea>
+        <div class="btn-group" role="group">
+        <button class="btn btn-secondary" type="submit" onclick='submitComment()'>Submit</button> 
+        <button class="btn btn-secondary" onclick="getDataUsingAsyncAwait()">See Comments</button>
+        <button class="btn btn-secondary" onclick="hideData()">Hide Comments</button>
+        <button class="btn btn-secondary" onclick="deleteDataUsingAsyncAwait()">Delete Comments</button>
+        </div>
+        <div id="commentContainer"></div>
+      </div>
+      </div>
+      <div class="container-fluid text-center bg-warning">
           <a href="conditionals.html">Conditionals</a>
-        </footer>
       </div>
       <!-- Required Bootstrap Scripts -->
       <script src="jquery.slim.min.js"></script>
