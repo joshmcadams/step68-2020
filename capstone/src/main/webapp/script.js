@@ -51,6 +51,23 @@ function compile() {
 }
 
 /**
+ * Deletes all the comments from the 'Comments' servlet.
+ */
+async function deleteDataUsingAsyncAwait() {
+  // Retrieve the data from '/comments' and delete the comments from the admin page
+  /* TODO: handle errors */
+  const response = await fetch('/comments', {
+    method: 'DELETE',
+  });
+  
+  // Delete the data from the page
+  const dataContainer = document.querySelector('#commentContainer');
+  dataContainer.style.visibility = 'hidden';
+  dataContainer.style.display = 'block';
+  dataContainer.innerHTML = data;
+}
+
+/**
   * Fetches looping submissions and uses it to create a chart.
   */
 function drawChart() {
@@ -106,14 +123,24 @@ function displayLoginOption() {
  * Give up response to dropdown question on welcome page.
  */
 function giveUp(){
-  const dropdown = document.querySelector('#dropdownMenuButton');
-  const incorrect = document.querySelector('#wrong');
   const response = document.querySelector('#right');
-  const answer = document.querySelector('#answer');
-  invisibleText(incorrect);
-  invisibleText(answer);
-  invisibleText(dropdown);
+  if((document.querySelector("#wrong").style.visibility)!="hidden"){
+    document.querySelector('#wrong').style.visibility = 'hidden';
+  }
   visibleText(response);
+  invisibleText(document.querySelector('#dropdownMenuButton'));
+  invisibleText(document.querySelector('#answer'));
+}
+
+function hideMessage(){
+    document.querySelector('#wrong').style.visibility = 'hidden';
+}
+/**
+ * Hides the comment section (only works if logged in).
+ */
+function hideData() {
+  document.querySelector('#commentContainer').style.visibility = 'hidden';
+  document.querySelector('#commentContainer').style.display = 'none';
 }
 
 /**
@@ -298,6 +325,38 @@ async function submitAnswer() {
     visibleText(wrong);
     invisibleText(right);
   }
+}
+/**
+ * Adds the data from the Comments servlet using async/await (the return values are used directly), and converts it to a JSON.
+ */
+async function getDataUsingAsyncAwait() {
+  // Retrieve the data from '/comments'
+  /* TODO: handle errors */
+  const response = await fetch('/comments');
+  const data = await response.json();
+  var text = "";
+  for(i = 0; i < data.length; i++){
+    text += "<b>" + "<i>" + data[i].commentText + "</i><br>";
+  }
+
+  // Add the data to the page
+  const dataContainer = document.querySelector('#commentContainer');
+  dataContainer.style.visibility = 'visible';
+  dataContainer.style.display = 'block';
+  dataContainer.innerHTML = text;
+}
+
+async function submitComment() {
+  // Retrieve the data from '/comments'
+  const data = {
+      "commentInput": document.querySelector("#comment-input").value
+  };
+  const response = await fetch('/comments', {
+    method: 'POST',
+    body: JSON.stringify(data)
+    });
+     // Put the text on the page
+  getDataUsingAsyncAwait();
 }
 
 /** 
