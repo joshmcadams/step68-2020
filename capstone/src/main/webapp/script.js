@@ -55,7 +55,6 @@ function compile() {
  */
 async function deleteDataUsingAsyncAwait() {
   // Retrieve the data from '/comments' and delete the comments from the admin page
-  /* TODO: handle errors */
   const response = await fetch('/comments', {
     method: 'DELETE',
   });

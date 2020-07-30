@@ -33,7 +33,25 @@ public class CommentServlet extends HttpServlet {
     }
   }
   
- 
+  @Override
+  public void doDelete(HttpServletRequest request, HttpServletResponse response){
+    UserService userService = UserServiceFactory.getUserService();
+    if (!userService.isUserLoggedIn()) {
+      response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+      return;
+    }
+
+    // Prepare the Query to store the entities you want to load
+    Query query = new Query("Comments");
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    PreparedQuery results = datastore.prepare(query);
+
+    // Delete all the comments in the datastore admin page
+    for(Entity entity : results.asIterable()){
+      datastore.delete(entity.getKey());
+    }
+  }
+  
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     Query query = new Query("Comments").addSort("timestamp", SortDirection.DESCENDING);
