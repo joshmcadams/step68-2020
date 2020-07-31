@@ -32,7 +32,7 @@ public class CommentServlet extends HttpServlet {
       this.commentInput = comment;
     }
   }
-  
+
   @Override
   public void doDelete(HttpServletRequest request, HttpServletResponse response){
     UserService userService = UserServiceFactory.getUserService();
@@ -51,7 +51,7 @@ public class CommentServlet extends HttpServlet {
       datastore.delete(entity.getKey());
     }
   }
-  
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     Query query = new Query("Comments").addSort("timestamp", SortDirection.DESCENDING);
@@ -60,11 +60,7 @@ public class CommentServlet extends HttpServlet {
 
     List<Comment> formComments = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
-      String id = userService.getCurrentUser().getUserId();
-      String commentText = (String) entity.getProperty("comment");
-      long timestamp = (long) entity.getProperty("timestamp");
-      Comment comment = new Comment(id, commentText, timestamp);
-      formComments.add(comment);
+      formComments.add(Comment.fromDataStore(userService.getCurrentUser(), entity));
     }
     Gson gson = new Gson();
     response.setContentType("application/json;");
@@ -73,13 +69,13 @@ public class CommentServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-      
+
     // Get the body of the HTTP Post
     String body = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
 
     Gson gson = new Gson();
     jsonComment target = gson.fromJson(body, jsonComment.class);
-    
+
     String userComment = target.commentInput;
     Entity commentEntity = new Entity("Comments");
     long timestamp = System.currentTimeMillis();
@@ -95,4 +91,4 @@ public class CommentServlet extends HttpServlet {
       // Redirect back to the HTML page.
     response.sendRedirect("/index.html");
   }
-} 
+}
